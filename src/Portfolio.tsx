@@ -24,7 +24,7 @@ export default function Portfolio() {
         <div className="font-sans text-gray-800">
             {/* NAVBAR desktop */}
             <header className="hidden lg:flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
-                <h1 className="text-xl font-bold">Mi Portafolio</h1>
+                <h1 className="text-xl font-bold">Portafolio Ricardo Legaspi</h1>
                 <nav className="space-x-4">
                     {links.map((link) => (
                         <a key={link.name} href={link.href} className="hover:text-blue-600">
@@ -202,7 +202,7 @@ export default function Portfolio() {
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/portafolio/preview.png"
+                                src="/images/tiendaepos/store.png"
                                 alt="Proyecto tornillos"
                                 className="h-40 w-full object-cover"
                             />
@@ -214,7 +214,7 @@ export default function Portfolio() {
                             </p>
                             <div className="text-end w-10/12 mx-auto">
                                 <a
-                                    href="/"
+                                    href="/detalle-tienda-epos"
                                     className="text-sm px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
                                 >
                                     Ver más
