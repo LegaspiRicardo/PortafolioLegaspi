@@ -127,7 +127,7 @@ export default function Portfolio() {
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/casaXavier/dashboard.png"
+                                src="/images/casaxavier/dashboard.png"
                                 alt="Casa Xavier"
                                 className="h-40 w-full object-cover"
                             />
@@ -203,7 +203,7 @@ export default function Portfolio() {
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
                                 src="/images/portafolio/preview.png"
-                                alt="Portafolio Personal"
+                                alt="Proyecto tornillos"
                                 className="h-40 w-full object-cover"
                             />
                         </div>
