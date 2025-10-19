@@ -14,11 +14,7 @@ export default function Portfolio() {
     // Detectar scroll para navbar móvil
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 800) {
-                setShowMobileNavbar(true);
-            } else {
-                setShowMobileNavbar(false);
-            }
+            setShowMobileNavbar(window.scrollY > 800);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -44,10 +40,7 @@ export default function Portfolio() {
                     }`}
             >
                 <h1 className="text-xl font-bold">Mi Portafolio</h1>
-                <button
-                    className="text-white focus:outline-none"
-                    onClick={() => setSidebarOpen(true)}
-                >
+                <button className="text-white focus:outline-none" onClick={() => setSidebarOpen(true)}>
                     <svg
                         className="w-6 h-6 text-white"
                         fill="none"
@@ -66,10 +59,7 @@ export default function Portfolio() {
             >
                 <div className="flex justify-between items-center p-4 border-b">
                     <h2 className="font-bold text-lg">Menú</h2>
-                    <button
-                        onClick={() => setSidebarOpen(false)}
-                        className="text-gray-800 focus:outline-none"
-                    >
+                    <button onClick={() => setSidebarOpen(false)} className="text-gray-800 focus:outline-none">
                         ✖
                     </button>
                 </div>
@@ -133,12 +123,11 @@ export default function Portfolio() {
             <section id="projects" className="max-w-5xl mx-auto py-16 px-6">
                 <h3 className="text-2xl font-bold mb-6 text-white">Proyectos</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-                    {/* 🏠 Proyecto 1 */}
+                    {/* Casa Xavier */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/casaXavier/Dashboard.PNG"
+                                src="/images/casaXavier/dashboard.png"
                                 alt="Casa Xavier"
                                 className="h-40 w-full object-cover"
                             />
@@ -159,11 +148,11 @@ export default function Portfolio() {
                         </div>
                     </div>
 
-                    {/* 🛒 Proyecto 2 */}
+                    {/* Radical Boards */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/tiendaSkate/Store.PNG"
+                                src="/images/tiendaSkate/store.png"
                                 alt="Tienda Online"
                                 className="h-40 w-full object-cover"
                             />
@@ -184,11 +173,11 @@ export default function Portfolio() {
                         </div>
                     </div>
 
-                    {/* 📅 Proyecto 3 */}
+                    {/* Dental Art */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/clinicaDental/Appointments.PNG"
+                                src="/images/clinicaDental/appointments.png"
                                 alt="Gestor de Citas"
                                 className="h-40 w-full object-cover"
                             />
@@ -209,7 +198,7 @@ export default function Portfolio() {
                         </div>
                     </div>
 
-                    {/* 🎨 Proyecto 4 */}
+                    {/* Epos Comercializadora */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
@@ -233,7 +222,6 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
