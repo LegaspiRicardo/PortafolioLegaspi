@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function Portfolio() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -26,7 +26,7 @@ export default function Portfolio() {
 
     return (
         <div className="font-sans text-gray-800">
-            {/* NAVBAR desktop, siempre visible */}
+            {/* NAVBAR desktop */}
             <header className="hidden lg:flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
                 <h1 className="text-xl font-bold">Mi Portafolio</h1>
                 <nav className="space-x-4">
@@ -38,7 +38,7 @@ export default function Portfolio() {
                 </nav>
             </header>
 
-            {/* NAVBAR tablet/móvil, aparece con scroll y no deja espacio gris */}
+            {/* NAVBAR móvil */}
             <header
                 className={`fixed lg:hidden top-0 left-0 w-full flex justify-between items-center p-4 shadow-md bg-white z-50 transition-transform duration-500 ${showMobileNavbar ? "translate-y-0" : "-translate-y-full"
                     }`}
@@ -54,12 +54,7 @@ export default function Portfolio() {
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                     >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M4 6h16M4 12h16M4 18h16"
-                        />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </header>
@@ -94,10 +89,11 @@ export default function Portfolio() {
 
             {/* HERO */}
             <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-600 text-white">
-                <h2 className="text-3xl  py-64" >¡Hola mundo! </h2>
+                <h2 className="text-3xl py-64">¡Hola mundo!</h2>
                 <h2 className="text-2xl font-semibold mb-12 mt-16 text-center">Soy Ricardo Legaspi</h2>
-                <p className="text-xl font-bold text-center w-4/5 mb-32 ">Ingeniero en Tecnologías de la Información</p>
-
+                <p className="text-xl font-bold text-center w-4/5 mb-32">
+                    Ingeniero en Tecnologías de la Información
+                </p>
                 <a
                     href="#projects"
                     className="bg-white text-blue-600 px-6 py-2 mb-16 rounded-full font-semibold shadow hover:bg-gray-100"
@@ -110,7 +106,7 @@ export default function Portfolio() {
             <section id="about" className="max-w-4xl mx-auto py-32 px-6 text-white">
                 <h3 className="text-2xl font-bold mb-4">Sobre mí</h3>
                 <p className="text-justify text-lg">
-                    Me apasiona el desarrollo web, las interfaces de usuario, las  bases de datos y el manejo de la información.
+                    Me apasiona el desarrollo web, las interfaces de usuario, las bases de datos y el manejo de la información.
                     <br />
                     <br />
                     Mi objetivo en cada proyecto es diseñar y desarrollar soluciones innovadoras que aporten valor a empresas y usuarios, combinando creatividad y tecnología.
@@ -123,44 +119,33 @@ export default function Portfolio() {
                     <h3 className="text-2xl font-bold mb-6">Habilidades y tecnologías</h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">
                         {[
-                            "HTML",
-                            "CSS",
-                            "Bootstrap",
-                            "PHP",
-                            "Laravel",
-                            "Tailwind",
-                            "React",
-                            "MySQL",
-                            "WordPress",
-                            "Git/GitHub",
+                            "HTML", "CSS", "Bootstrap", "PHP", "Laravel", "Tailwind", "React", "MySQL", "WordPress", "Git/GitHub",
                         ].map((tech) => (
-                            <div
-                                key={tech}
-                                className="p-4 bg-white rounded-xl shadow hover:shadow-lg"
-                            >
+                            <div key={tech} className="p-4 bg-white rounded-xl shadow hover:shadow-lg">
                                 {tech}
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
+
             {/* PROYECTOS */}
             <section id="projects" className="max-w-5xl mx-auto py-16 px-6">
                 <h3 className="text-2xl font-bold mb-6 text-white">Proyectos</h3>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {/* 🏠 Proyecto 1 - Casa Xavier */}
+
+                    {/* 🏠 Proyecto 1 */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="./public/images/casaXavier/Dashboard.PNG"
+                                src="/images/casaXavier/Dashboard.PNG"
                                 alt="Casa Xavier"
                                 className="h-40 w-full object-cover"
                             />
                         </div>
                         <div className="p-4">
                             <h4 className="font-semibold mb-2">Casa Xavier</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12 ">
+                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
                                 Sistema gestor informativo con galería y detalles de productos. Desarrollado con PHP y Laravel.
                             </p>
                             <div className="text-end w-10/12 mx-auto">
@@ -170,23 +155,22 @@ export default function Portfolio() {
                                 >
                                     Ver más
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
-                    {/* 🛒 Proyecto 2 - Tienda Online */}
+                    {/* 🛒 Proyecto 2 */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="./public/images/tiendaSkate/store.PNG"
+                                src="/images/tiendaSkate/store.PNG"
                                 alt="Tienda Online"
                                 className="h-40 w-full object-cover"
                             />
                         </div>
                         <div className="p-4">
                             <h4 className="font-semibold mb-2">Radical Boards</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12 ">
+                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
                                 Diseño de E-commerce con gestión de productos, panel admin. Desarrollado con PHP y Laravel.
                             </p>
                             <div className="text-end w-10/12 mx-auto">
@@ -196,23 +180,22 @@ export default function Portfolio() {
                                 >
                                     Ver más
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
-                    {/* 📅 Proyecto 3 - Gestor de Citas */}
+                    {/* 📅 Proyecto 3 */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="./public/images/clinicaDental/appointments.PNG"
+                                src="/images/clinicaDental/appointments.PNG"
                                 alt="Gestor de Citas"
                                 className="h-40 w-full object-cover"
                             />
                         </div>
                         <div className="p-4">
                             <h4 className="font-semibold mb-2">Dental Art</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12 ">
+                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
                                 Aplicación PWA para clínicas dentales con horarios, pacientes y servicios. Desarrollado con React y Tailwind.
                             </p>
                             <div className="text-end w-10/12 mx-auto">
@@ -222,12 +205,11 @@ export default function Portfolio() {
                                 >
                                     Ver más
                                 </a>
-
                             </div>
                         </div>
                     </div>
 
-                    {/* 🎨 Proyecto 4 - Portafolio Personal */}
+                    {/* 🎨 Proyecto 4 */}
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
@@ -238,8 +220,8 @@ export default function Portfolio() {
                         </div>
                         <div className="p-4">
                             <h4 className="font-semibold mb-2">Epos comercializadora</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12 ">
-                                Diseño de interfaz para un E-commerce con giro de girlos y tornillos automotrices.
+                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
+                                Diseño de interfaz para un E-commerce con giro de birlos y tornillos automotrices.
                             </p>
                             <div className="text-end w-10/12 mx-auto">
                                 <a
@@ -248,13 +230,12 @@ export default function Portfolio() {
                                 >
                                     Ver más
                                 </a>
-
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
-
 
             {/* CONTACTO */}
             <section id="contact" className="bg-gray-50 py-16 px-6">
