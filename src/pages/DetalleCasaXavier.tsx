@@ -16,22 +16,22 @@ export default function DetalleCasaXavier() {
                 <h2 className="text-2xl font-bold mb-6 text-gray-800">Imagenes del proyecto</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <img
-                        src="./public/images/casaXavier/Dashboard.png"
+                        src="/images/casaXavier/Dashboard.png"
                         alt="Dashboard principal Casa Xavier"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/casaXavier/employeer manager.png"
+                        src="/images/casaXavier/employeer manager.png"
                         alt="Detalle producto"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/casaXavier/Inventario view.png"
+                        src="/images/casaXavier/Inventario view.png"
                         alt="Seccion inventario"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/casaXavier/Register modal.png"
+                        src="/images/casaXavier/Register modal.png"
                         alt="Formulario de contacto"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />

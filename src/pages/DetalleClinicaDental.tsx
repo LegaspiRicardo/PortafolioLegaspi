@@ -15,22 +15,22 @@ export default function DetalleClinicaDental() {
                 <h2 className="text-2xl font-bold mb-6 text-gray-800">Imagenes del proyecto</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <img
-                        src="./public/images/clinicaDental/Schedule.png"
+                        src="images/clinicaDental/Schedule.png"
                         alt="Vista horarios Dental art"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/clinicaDental/Dentist.png"
+                        src="/images/clinicaDental/Dentist.png"
                         alt="Vista dentistas"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/clinicaDental/Appointments.png"
+                        src="/images/clinicaDental/Appointments.png"
                         alt="Seccion citas"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/clinicaDental/RegisterForm.png"
+                        src="/images/clinicaDental/RegisterForm.png"
                         alt="Formulario de registro"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />

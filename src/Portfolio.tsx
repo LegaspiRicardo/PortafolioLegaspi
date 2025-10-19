@@ -163,7 +163,7 @@ export default function Portfolio() {
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/tiendaSkate/store.PNG"
+                                src="/images/tiendaSkate/Store.PNG"
                                 alt="Tienda Online"
                                 className="h-40 w-full object-cover"
                             />
@@ -188,7 +188,7 @@ export default function Portfolio() {
                     <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
                         <div className="bg-gray-200 h-40 flex items-center justify-center">
                             <img
-                                src="/images/clinicaDental/appointments.PNG"
+                                src="/images/clinicaDental/Appointments.PNG"
                                 alt="Gestor de Citas"
                                 className="h-40 w-full object-cover"
                             />

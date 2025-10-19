@@ -16,22 +16,22 @@ export default function DetalleRadicalBoards() {
                 <h2 className="text-2xl font-bold mb-6 text-gray-800">Imagenes del proyecto</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <img
-                        src="./public/images/tiendaSkate/Home desktop.png"
+                        src="/images/tiendaSkate/Home desktop.png"
                         alt="Pagina home tienda skate"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/tiendaSkate/Store.png"
+                        src="/images/tiendaSkate/Store.png"
                         alt="Tienda skate"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/tiendaSkate/Events.png"
+                        src="/images/tiendaSkate/Events.png"
                         alt="Seccion eventos"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
                     <img
-                        src="./public/images/tiendaSkate/foro.png"
+                        src="/images/tiendaSkate/foro.png"
                         alt="Sección foro"
                         className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                     />
