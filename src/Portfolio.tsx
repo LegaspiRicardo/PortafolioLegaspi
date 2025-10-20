@@ -21,7 +21,7 @@ export default function Portfolio() {
     }, []);
 
     return (
-        <div className="font-sans text-gray-800">
+        <div className="font-sans  text-gray-800 bg-gray-800">
             {/* NAVBAR desktop */}
             <header className="hidden lg:flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
                 <h1 className="text-xl font-bold">Portafolio Ricardo Legaspi</h1>
@@ -229,10 +229,16 @@ export default function Portfolio() {
             <section id="contact" className="bg-gray-50 py-16 px-6">
                 <div className="max-w-3xl mx-auto">
                     <h3 className="text-2xl font-bold mb-6">Contacto</h3>
-                    <form className="grid gap-4">
-                        <input type="text" placeholder="Nombre" className="p-3 border rounded" />
-                        <input type="email" placeholder="Correo" className="p-3 border rounded" />
-                        <textarea placeholder="Mensaje" rows={4} className="p-3 border rounded" />
+                    <p>¿Quiere un sitio web para su negocio? </p>
+                    <br />
+                    <p>¿Busca atraer clientes con su página?</p>
+                    <br />
+                    <p>Escribame para conocer sus necesidades y potenciar su prescencia en internet.</p>
+                    <br />
+                    <form className="grid gap-4 ">
+                        <input type="text" placeholder="Nombre" className="p-3 border border-blue-500 rounded bg-white placeholder-blue-500" />
+                        <input type="email" placeholder="Correo" className="p-3 border border-blue-500 rounded bg-white placeholder-blue-500" />
+                        <textarea placeholder="Mensaje" rows={4} className="p-3 border border-blue-500 rounded bg-white placeholder-blue-500" />
                         <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
                             Enviar
                         </button>
