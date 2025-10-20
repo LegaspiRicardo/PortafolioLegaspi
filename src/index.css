@@ -70,3 +70,43 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* --- EFECTO DE REVELADO SOLO AL CARGAR LA PRIMERA VEZ --- */
+#background-mask {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("/images/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* La máscara y animación SOLO cuando tenemos esta clase */
+.animate-mask {
+  /* máscara aplicada solo durante la animación */
+  mask-image: url("/circlesvg.svg");
+  mask-repeat: no-repeat;
+  mask-position: top center;
+  mask-size: 50px;
+
+  -webkit-mask-image: url("/circlesvg.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: top center;
+  -webkit-mask-size: 50px;
+
+  /* animación */
+  animation: lock-reveal 4s forwards ease-in-out;
+}
+
+/* keyframes: la máscara crece desde 50px hasta cubrir todo */
+@keyframes lock-reveal {
+  0% {
+    mask-size: 50px;
+    -webkit-mask-size: 50px;
+  }
+  100% {
+    mask-size: 300vh;          /* suficiente para cubrir */
+    -webkit-mask-size: 300vh;
+  }
+}

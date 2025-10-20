@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function Portfolio() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [showMobileNavbar, setShowMobileNavbar] = useState(false);
+    const [showMaskAnimation, setShowMaskAnimation] = useState(false);
 
     const links = [
         { name: "Sobre mí", href: "#about" },
@@ -20,8 +21,26 @@ export default function Portfolio() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    // Mostrar la animación solo la primera vez en la sesión 
+    useEffect(() => {
+        const hasVisited = sessionStorage.getItem("hasVisited"); 
+        if (!hasVisited) {
+            setShowMaskAnimation(true);
+            sessionStorage.setItem("hasVisited", "true");
+        }
+    }, []);
+
+    // Cuando la animación termine, se elimina la clase para eliminar la máscara 
+    const handleMaskAnimationEnd = () => {
+        setShowMaskAnimation(false);
+    };
+
     return (
-        <div className="font-sans  text-gray-800 bg-gray-800">
+        <div
+            id="background-mask"
+            className={`font-sans text-gray-800 bg-gray-800 ${showMaskAnimation ? "animate-mask" : ""}`}
+            onAnimationEnd={handleMaskAnimationEnd}
+        >
             {/* NAVBAR desktop */}
             <header className="hidden lg:flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
                 <h1 className="text-xl font-bold">Portafolio Ricardo Legaspi</h1>
@@ -41,12 +60,7 @@ export default function Portfolio() {
             >
                 <h1 className="text-xl font-bold">Mi Portafolio</h1>
                 <button className="text-white focus:outline-none" onClick={() => setSidebarOpen(true)}>
-                    <svg
-                        className="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
@@ -65,32 +79,23 @@ export default function Portfolio() {
                 </div>
                 <nav className="flex flex-col mt-4 space-y-2 px-4">
                     {links.map((link) => (
-                        <a
-                            key={link.name}
-                            href={link.href}
-                            className="hover:text-blue-600"
-                            onClick={() => setSidebarOpen(false)}
-                        >
+                        <a key={link.name} href={link.href} className="hover:text-blue-600" onClick={() => setSidebarOpen(false)}>
                             {link.name}
                         </a>
                     ))}
                 </nav>
             </div>
 
-            {/* HERO */}
+            {/* BIENVENIDA */}
             <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-600 text-white">
-                <h2 className="text-3xl py-64">¡Hola mundo!</h2>
-                <h2 className="text-2xl font-semibold mb-12 mt-16 text-center">Soy Ricardo Legaspi</h2>
-                <p className="text-xl font-bold text-center w-4/5 mb-32">
-                    Ingeniero en Tecnologías de la Información
-                </p>
-                <a
-                    href="#projects"
-                    className="bg-white text-blue-600 px-6 py-2 mb-16 rounded-full font-semibold shadow hover:bg-gray-100"
-                >
+                <h2 className="text-4xl py-64">¡Hola mundo!</h2>
+                <h2 className="text-3xl font-semibold mb-12 mt-16 text-center">Soy Ricardo Legaspi</h2>
+                <p className="text-2xl font-bold text-center w-4/5 mb-32">Ingeniero en Tecnologías de la Información</p>
+                <a href="#projects" className="bg-white text-xl text-blue-600 px-6 py-4 mb-16 rounded-full font-semibold shadow hover:bg-gray-100">
                     Ver proyectos
                 </a>
             </section>
+
 
             {/* SOBRE MI */}
             <section id="about" className="max-w-4xl mx-auto py-32 px-6 text-white">
