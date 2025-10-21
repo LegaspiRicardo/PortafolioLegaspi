@@ -145,7 +145,7 @@ export default function Portfolio() {
                 <div className="w-full mx-auto ">
                     <h3 className="text-2xl font-bold mb-2">Habilidades y tecnologías</h3>
                     <div style={{ height: '400px', position: 'relative', bottom:'50px'}}>
-                        <CircularGallery bend={1} textColor="#aaaaa" borderRadius={0.05} scrollEase={0.02} />
+                        <CircularGallery bend={1} textColor="#aaaaa" borderRadius={0.05} scrollEase={0.2} />
                     </div>
                 </div>
             </section>
