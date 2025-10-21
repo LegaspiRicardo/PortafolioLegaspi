@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import TextType from "./components/TextType";
 import AnimatedContent from "./components/AnimatedContent";
+import CircularGallery from "./components/CircularGallery";
+
 import './components/TextType.css';
+import './components/CircularGallery.css';
 
 
 export default function Portfolio() {
@@ -109,7 +112,7 @@ export default function Portfolio() {
                     initialOpacity={0}
                     scale={0.1}
                     threshold={0.1}
-                    delay={0.02}
+                    delay={0.5}
                 >
                     <div className="text-center mx-auto border w-10/12 border-gray-200 rounded-lg">
                         <div className="w-11/12 mx-auto">
@@ -138,17 +141,11 @@ export default function Portfolio() {
             </section>
 
             {/* HABILIDADES */}
-            <section id="skills" className="bg-gray-50 py-16 px-6">
-                <div className="max-w-4xl mx-auto">
-                    <h3 className="text-2xl font-bold mb-6">Habilidades y tecnologías</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">
-                        {[
-                            "HTML", "CSS", "Bootstrap", "PHP", "Laravel", "Tailwind", "React", "MySQL", "WordPress", "Git/GitHub",
-                        ].map((tech) => (
-                            <div key={tech} className="p-4 bg-white rounded-xl shadow hover:shadow-lg">
-                                {tech}
-                            </div>
-                        ))}
+            <section id="skills" className="bg-gray-100 pt-24 px-6">
+                <div className="w-full mx-auto ">
+                    <h3 className="text-2xl font-bold mb-2">Habilidades y tecnologías</h3>
+                    <div style={{ height: '400px', position: 'relative', bottom:'50px'}}>
+                        <CircularGallery bend={1} textColor="#aaaaa" borderRadius={0.05} scrollEase={0.02} />
                     </div>
                 </div>
             </section>
