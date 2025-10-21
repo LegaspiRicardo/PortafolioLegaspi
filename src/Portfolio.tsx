@@ -54,29 +54,29 @@ export default function Portfolio() {
 
             {/* NAVBAR móvil */}
             <header
-                className={`fixed lg:hidden top-0 left-0 w-full flex justify-between items-center p-4 shadow-md bg-white z-50 transition-transform duration-500 ${showMobileNavbar ? "translate-y-0" : "-translate-y-full"
+                className={`fixed lg:hidden top-0 left-0 w-full flex justify-between items-center p-4 shadow-md bg-indigo-700 z-50 transition-transform duration-500 ${showMobileNavbar ? "translate-y-0" : "-translate-y-full"
                     }`}
             >
-                <h1 className="text-xl font-bold">Mi Portafolio</h1>
-                <button className="text-white focus:outline-none" onClick={() => setSidebarOpen(true)}>
-                    ✚
+                <a href="/" className="text-white"><h1 className="text-lg ">Portafolio RL</h1></a>
+                <button className="text-white focus:outline-none bg-transparent" onClick={() => setSidebarOpen(true)}>
+                    ☰
                 </button>
             </header>
 
             {/* SIDEBAR móvil */}
             <div
-                className={`fixed top-0 left-0 w-64 h-full bg-white shadow-md z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+                className={`fixed text-white top-0 left-0 w-64 h-full bg-gray-600 shadow-md z-50 transform ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
                     } transition-transform duration-300 ease-in-out`}
             >
                 <div className="flex justify-between items-center p-4 border-b">
                     <h2 className="font-bold text-lg">Menú</h2>
-                    <button onClick={() => setSidebarOpen(false)} className="text-gray-800 focus:outline-none">
+                    <button onClick={() => setSidebarOpen(false)} className="text-gray-800 focus:outline-none bg-transparent">
                         ✖
                     </button>
                 </div>
                 <nav className="flex flex-col mt-4 space-y-2 px-4">
                     {links.map((link) => (
-                        <a key={link.name} href={link.href} className="hover:text-blue-600" onClick={() => setSidebarOpen(false)}>
+                        <a key={link.name} href={link.href} className="hover:text-blue-600 text-white" onClick={() => setSidebarOpen(false)}>
                             {link.name}
                         </a>
                     ))}
@@ -84,19 +84,19 @@ export default function Portfolio() {
             </div>
 
             {/* BIENVENIDA */}
-            <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-600 text-white">
+            <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-indigo-800 to-indigo-600 text-white pb-24">
                 <TextType
                     text="¡Hola mundo!"
                     as="h2"
                     className="text-4xl pt-72 mx-auto text-center"
-                    typingSpeed={100}
+                    typingSpeed={80}
                 />
 
                 <TextType
                     text="Bienvenidos a mi portafolio web"
                     as="h2"
                     className="text-2xl pt-4 pb-32 mx-auto text-center"
-                    typingSpeed={100}
+                    typingSpeed={70}
                     initialDelay={2000}
                 />
 
@@ -107,19 +107,18 @@ export default function Portfolio() {
                     duration={1.5}
                     ease="power3.out"
                     initialOpacity={0}
-                    animateOpacity
                     scale={0.1}
                     threshold={0.1}
-                    delay={1}
+                    delay={0.02}
                 >
                     <div className="text-center mx-auto border w-10/12 border-gray-200 rounded-lg">
-
-                        <h2 className=" text-3xl font-semibold mb-12 pt-24 text-center">Soy Ricardo Legaspi</h2>
-                        <p className="text-2xl font-bold text-center w-4/5 mb-24 mx-auto">Ingeniero en Tecnologías de la Información</p>
-                        <a href="#projects" className="bg-white text-xl text-blue-600 px-6 py-4 mb-16 rounded-full font-semibold shadow hover:bg-gray-100">
-                            Ver proyectos
-                        </a>
-
+                        <div className="w-11/12 mx-auto">
+                            <h2 className=" text-3xl font-bold mb-12 pt-4 text-center">Soy Ricardo Legaspi</h2>
+                            <p className="text-2xl font-semibold text-center w-full mb-12 mx-auto">Ingeniero en Tecnologías de la Información</p>
+                            <a href="#projects" className="bg-white text-md text-blue-600 px-6 py-2 mb-16 rounded-full font-semibold shadow hover:bg-gray-100">
+                                Ver proyectos
+                            </a>
+                        </div>
                     </div>
                 </AnimatedContent>
 
@@ -175,7 +174,7 @@ export default function Portfolio() {
                             <div className="text-end w-10/12 mx-auto">
                                 <a
                                     href="/detalle-casa-xavier"
-                                    className="text-sm px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
                                 >
                                     Ver más
                                 </a>
@@ -200,7 +199,7 @@ export default function Portfolio() {
                             <div className="text-end w-10/12 mx-auto">
                                 <a
                                     href="/detalle-radical-boards"
-                                    className="text-sm px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
                                 >
                                     Ver más
                                 </a>
@@ -225,7 +224,7 @@ export default function Portfolio() {
                             <div className="text-end w-10/12 mx-auto">
                                 <a
                                     href="/detalle-clinica-dental"
-                                    className="text-sm px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
                                 >
                                     Ver más
                                 </a>
@@ -250,7 +249,7 @@ export default function Portfolio() {
                             <div className="text-end w-10/12 mx-auto">
                                 <a
                                     href="/detalle-tienda-epos"
-                                    className="text-sm px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
                                 >
                                     Ver más
                                 </a>
@@ -271,10 +270,10 @@ export default function Portfolio() {
                     <p>Escribame para conocer sus necesidades y potenciar su prescencia en internet.</p>
                     <br />
                     <form className="grid gap-4 ">
-                        <input type="text" placeholder="Nombre" className="p-3 border border-blue-500 rounded bg-white placeholder-blue-500" />
-                        <input type="email" placeholder="Correo" className="p-3 border border-blue-500 rounded bg-white placeholder-blue-500" />
-                        <textarea placeholder="Mensaje" rows={4} className="p-3 border border-blue-500 rounded bg-white placeholder-blue-500" />
-                        <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+                        <input type="text" placeholder="Nombre" className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500" />
+                        <input type="email" placeholder="Correo" className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500" />
+                        <textarea placeholder="Mensaje" rows={4} className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500" />
+                        <button className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-blue-700">
                             Enviar
                         </button>
                     </form>
