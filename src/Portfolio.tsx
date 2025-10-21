@@ -130,14 +130,57 @@ export default function Portfolio() {
 
 
             {/* SOBRE MI */}
-            <section id="about" className="max-w-4xl mx-auto py-32 px-6 text-white">
-                <h3 className="text-2xl font-bold mb-4">Sobre mí</h3>
-                <p className="text-justify text-lg">
-                    Me apasiona el desarrollo web, las interfaces de usuario, las bases de datos y el manejo de la información.
-                    <br />
-                    <br />
-                    Mi objetivo en cada proyecto es diseñar y desarrollar soluciones innovadoras que aporten valor a empresas y usuarios, combinando creatividad y tecnología.
-                </p>
+            <section id="about" className="max-w-4xl mx-auto pt-36 pb-44 px-6 text-white">
+                <AnimatedContent
+                    distance={150}
+                    direction="vertical"
+                    reverse={false}
+                    duration={1.8}
+                    ease="power3.out"
+                    initialOpacity={0}
+                    scale={0.1}
+                    threshold={0.1}
+                    delay={0.05}
+                >
+                    <h3 className="text-2xl font-bold mb-12">Sobre mí</h3>
+                </AnimatedContent>
+
+
+                <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={false}
+                    duration={1.8}
+                    ease="power3.out"
+                    initialOpacity={0}
+                    scale={0.1}
+                    threshold={0.1}
+                    delay={1}
+                >
+                    <p className="text-justify text-lg">
+                        Me apasiona el desarrollo web, las interfaces de usuario, las bases de datos y el manejo de la información.
+                        <br />
+                        <br />
+                        <br />
+
+                    </p>
+                </AnimatedContent>
+
+                <AnimatedContent
+                    distance={150}
+                    direction="horizontal"
+                    reverse={false}
+                    duration={1.8}
+                    ease="power3.out"
+                    initialOpacity={0}
+                    scale={0.1}
+                    threshold={0.1}
+                    delay={2}
+                >
+                    <p className="text-justify text-lg">
+                        Mi objetivo en cada proyecto es diseñar y desarrollar soluciones innovadoras que aporten valor a empresas y usuarios, combinando creatividad y tecnología.
+                    </p>
+                </AnimatedContent>
             </section>
 
             {/* HABILIDADES */}
