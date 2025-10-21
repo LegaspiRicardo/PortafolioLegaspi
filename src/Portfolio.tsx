@@ -110,7 +110,7 @@ export default function Portfolio() {
                     animateOpacity
                     scale={0.1}
                     threshold={0.1}
-                    delay={4}
+                    delay={1}
                 >
                     <div className="text-center mx-auto border w-10/12 border-gray-200 rounded-lg">
 
