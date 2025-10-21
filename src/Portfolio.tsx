@@ -95,30 +95,30 @@ export default function Portfolio() {
                 <TextType
                     text="Bienvenidos a mi portafolio web"
                     as="h2"
-                    className="text-4xl pt-4 pb-32 mx-auto text-center"
+                    className="text-2xl pt-4 pb-32 mx-auto text-center"
                     typingSpeed={100}
-                    initialDelay={4000}
+                    initialDelay={2000}
                 />
 
                 <AnimatedContent
                     distance={350}
                     direction="vertical"
                     reverse={false}
-                    duration={2.3}
+                    duration={1.5}
                     ease="power3.out"
                     initialOpacity={0}
                     animateOpacity
                     scale={0.1}
                     threshold={0.1}
-                    delay={0.5}
+                    delay={0.2}
                 >
-                    <div className="text-center mx-auto ">
+                    <div className="text-center mx-auto border border-gray-200 rounded-lg">
 
-                <h2 className="text-3xl font-semibold mb-12 pt-48 text-center">Soy Ricardo Legaspi</h2>
-                <p className="text-2xl font-bold text-center w-4/5 mb-32 mx-auto">Ingeniero en Tecnologías de la Información</p>
-                <a href="#projects" className="bg-white text-xl text-blue-600 px-6 py-4 mb-16 rounded-full font-semibold shadow hover:bg-gray-100">
-                    Ver proyectos
-                </a>
+                        <h2 className=" text-3xl font-semibold mb-12 pt-24 text-center">Soy Ricardo Legaspi</h2>
+                        <p className="text-2xl font-bold text-center w-4/5 mb-24 mx-auto">Ingeniero en Tecnologías de la Información</p>
+                        <a href="#projects" className="bg-white text-xl text-blue-600 px-6 py-4 mb-16 rounded-full font-semibold shadow hover:bg-gray-100">
+                            Ver proyectos
+                        </a>
 
                     </div>
                 </AnimatedContent>
