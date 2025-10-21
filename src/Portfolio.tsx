@@ -101,7 +101,7 @@ export default function Portfolio() {
                 />
 
                 <AnimatedContent
-                    distance={350}
+                    distance={150}
                     direction="vertical"
                     reverse={false}
                     duration={1.5}
@@ -110,9 +110,9 @@ export default function Portfolio() {
                     animateOpacity
                     scale={0.1}
                     threshold={0.1}
-                    delay={0.2}
+                    delay={4}
                 >
-                    <div className="text-center mx-auto border border-gray-200 rounded-lg">
+                    <div className="text-center mx-auto border w-10/12 border-gray-200 rounded-lg">
 
                         <h2 className=" text-3xl font-semibold mb-12 pt-24 text-center">Soy Ricardo Legaspi</h2>
                         <p className="text-2xl font-bold text-center w-4/5 mb-24 mx-auto">Ingeniero en Tecnologías de la Información</p>
