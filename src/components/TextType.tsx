@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState, createElement, useMemo, useCallback } from "react";
+import React, { useEffect, useRef, useState, useMemo, useCallback, type ReactNode, type ElementType } from 'react';
 import { gsap } from "gsap";
 import "./TextType.css";
 
 interface TextTypeProps {
     text: string | string[];
-    as?: keyof JSX.IntrinsicElements;
+    as?: ElementType;
     typingSpeed?: number;
     initialDelay?: number;
     pauseDuration?: number;
@@ -21,14 +21,14 @@ interface TextTypeProps {
     onSentenceComplete?: (text: string, index: number) => void;
     startOnVisible?: boolean;
     reverseMode?: boolean;
-    [x: string]: any;
+    children?: ReactNode;
 }
 
 const TextType: React.FC<TextTypeProps> = ({
     text,
     as: Component = 'div',
-    typingSpeed = 20,
-    initialDelay = 1500,
+    typingSpeed = 50,
+    initialDelay = 0,
     pauseDuration = 2000,
     deletingSpeed = 30,
     loop = true,
@@ -52,7 +52,7 @@ const TextType: React.FC<TextTypeProps> = ({
     const [isVisible, setIsVisible] = useState(!startOnVisible);
 
     const cursorRef = useRef<HTMLSpanElement>(null);
-    const containerRef = useRef<HTMLElement>(null);
+    const containerRef = useRef<HTMLElement | null>(null);
 
     const textArray = useMemo(() => (Array.isArray(text) ? text : [text]), [text]);
 
@@ -73,9 +73,7 @@ const TextType: React.FC<TextTypeProps> = ({
         const observer = new IntersectionObserver(
             entries => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                    }
+                    if (entry.isIntersecting) setIsVisible(true);
                 });
             },
             { threshold: 0.1 }
@@ -162,24 +160,20 @@ const TextType: React.FC<TextTypeProps> = ({
     const shouldHideCursor =
         hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
 
-    return createElement(
-        Component,
-        {
-            ref: containerRef,
-            className: `text-type ${className}`,
-            ...props
-        },
-        <span className="text-type__content" style={{ color: getCurrentTextColor() }}>
-            {displayedText}
-        </span>,
-        showCursor && (
-            <span
-                ref={cursorRef}
-                className={`text-type__cursor ${cursorClassName} ${shouldHideCursor ? 'text-type__cursor--hidden' : ''}`}
-            >
-                {cursorCharacter}
+    return (
+        <Component ref={containerRef} className={`text-type ${className}`} {...props}>
+            <span className="text-type__content" style={{ color: getCurrentTextColor() }}>
+                {displayedText}
             </span>
-        )
+            {showCursor && (
+                <span
+                    ref={cursorRef}
+                    className={`text-type__cursor ${cursorClassName} ${shouldHideCursor ? 'text-type__cursor--hidden' : ''}`}
+                >
+                    {cursorCharacter}
+                </span>
+            )}
+        </Component>
     );
 };
 
