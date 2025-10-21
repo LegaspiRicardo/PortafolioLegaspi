@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import TextType from "./components/TextType";
+import AnimatedContent from "./components/AnimatedContent";
+import './components/TextType.css';
+
 
 export default function Portfolio() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -14,26 +18,21 @@ export default function Portfolio() {
 
     // Detectar scroll para navbar móvil
     useEffect(() => {
-        const handleScroll = () => {
-            setShowMobileNavbar(window.scrollY > 800);
-        };
+        const handleScroll = () => setShowMobileNavbar(window.scrollY > 800);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Mostrar la animación solo la primera vez en la sesión 
+    // Animación de máscara solo la primera vez en la sesión
     useEffect(() => {
-        const hasVisited = sessionStorage.getItem("hasVisited"); 
+        const hasVisited = sessionStorage.getItem("hasVisited");
         if (!hasVisited) {
             setShowMaskAnimation(true);
             sessionStorage.setItem("hasVisited", "true");
         }
     }, []);
 
-    // Cuando la animación termine, se elimina la clase para eliminar la máscara 
-    const handleMaskAnimationEnd = () => {
-        setShowMaskAnimation(false);
-    };
+    const handleMaskAnimationEnd = () => setShowMaskAnimation(false);
 
     return (
         <div
@@ -60,9 +59,7 @@ export default function Portfolio() {
             >
                 <h1 className="text-xl font-bold">Mi Portafolio</h1>
                 <button className="text-white focus:outline-none" onClick={() => setSidebarOpen(true)}>
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+                    ✚
                 </button>
             </header>
 
@@ -88,12 +85,45 @@ export default function Portfolio() {
 
             {/* BIENVENIDA */}
             <section className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-800 to-indigo-600 text-white">
-                <h2 className="text-4xl py-64">¡Hola mundo!</h2>
-                <h2 className="text-3xl font-semibold mb-12 mt-16 text-center">Soy Ricardo Legaspi</h2>
-                <p className="text-2xl font-bold text-center w-4/5 mb-32">Ingeniero en Tecnologías de la Información</p>
+                <TextType
+                    text="¡Hola mundo!"
+                    as="h2"
+                    className="text-4xl pt-72 mx-auto text-center"
+                    typingSpeed={100}
+                />
+
+                <TextType
+                    text="Bienvenidos a mi portafolio web"
+                    as="h2"
+                    className="text-4xl pt-4 pb-32 mx-auto text-center"
+                    typingSpeed={100}
+                    initialDelay={4000}
+                />
+
+                <AnimatedContent
+                    distance={350}
+                    direction="vertical"
+                    reverse={false}
+                    duration={2.3}
+                    ease="power3.out"
+                    initialOpacity={0}
+                    animateOpacity
+                    scale={0.1}
+                    threshold={0.1}
+                    delay={0.5}
+                >
+                    <div className="text-center mx-auto ">
+
+                <h2 className="text-3xl font-semibold mb-12 pt-48 text-center">Soy Ricardo Legaspi</h2>
+                <p className="text-2xl font-bold text-center w-4/5 mb-32 mx-auto">Ingeniero en Tecnologías de la Información</p>
                 <a href="#projects" className="bg-white text-xl text-blue-600 px-6 py-4 mb-16 rounded-full font-semibold shadow hover:bg-gray-100">
                     Ver proyectos
                 </a>
+
+                    </div>
+                </AnimatedContent>
+
+
             </section>
 
 
