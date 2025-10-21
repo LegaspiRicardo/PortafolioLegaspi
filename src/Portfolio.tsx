@@ -144,7 +144,7 @@ export default function Portfolio() {
             <section id="skills" className="bg-gray-100 pt-24 px-6">
                 <div className="w-full mx-auto ">
                     <h3 className="text-2xl font-bold mb-2">Habilidades y tecnologías</h3>
-                    <div style={{ height: '400px', position: 'relative', bottom:'50px'}}>
+                    <div style={{ height: '400px', position: 'relative', bottom: '50px' }}>
                         <CircularGallery bend={1} textColor="#aaaaa" borderRadius={0.05} scrollEase={0.2} />
                     </div>
                 </div>
@@ -155,104 +155,156 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold mb-6 text-white">Proyectos</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {/* Casa Xavier */}
-                    <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
-                        <div className="bg-gray-200 h-40 flex items-center justify-center">
-                            <img
-                                src="/images/casaxavier/dashboard.PNG"
-                                alt="Casa Xavier"
-                                className="h-40 w-full object-cover"
-                            />
-                        </div>
-                        <div className="p-4">
-                            <h4 className="font-semibold mb-2">Casa Xavier</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
-                                Sistema gestor informativo con galería y detalles de productos. Desarrollado con PHP y Laravel.
-                            </p>
-                            <div className="text-end w-10/12 mx-auto">
-                                <a
-                                    href="/detalle-casa-xavier"
-                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
-                                >
-                                    Ver más
-                                </a>
+
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        duration={1.5}
+                        ease="power3.out"
+                        initialOpacity={0}
+                        scale={0.1}
+                        threshold={0.1}
+                        delay={0.05}
+                    >
+                        <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+                            <div className="bg-gray-200 h-40 flex items-center justify-center">
+                                <img
+                                    src="/images/casaxavier/dashboard.PNG"
+                                    alt="Casa Xavier"
+                                    className="h-40 w-full object-cover"
+                                />
+                            </div>
+                            <div className="p-4">
+                                <h4 className="font-semibold mb-2">Casa Xavier</h4>
+                                <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
+                                    Sistema gestor informativo con galería y detalles de productos. Desarrollado con PHP y Laravel.
+                                </p>
+                                <div className="text-end w-10/12 mx-auto">
+                                    <a
+                                        href="/detalle-casa-xavier"
+                                        className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
+                                    >
+                                        Ver más
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </AnimatedContent>
 
                     {/* Radical Boards */}
-                    <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
-                        <div className="bg-gray-200 h-40 flex items-center justify-center">
-                            <img
-                                src="/images/tiendaSkate/store.png"
-                                alt="Tienda Online"
-                                className="h-40 w-full object-cover"
-                            />
-                        </div>
-                        <div className="p-4">
-                            <h4 className="font-semibold mb-2">Radical Boards</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
-                                Diseño de E-commerce con gestión de productos, panel admin. Desarrollado con PHP y Laravel.
-                            </p>
-                            <div className="text-end w-10/12 mx-auto">
-                                <a
-                                    href="/detalle-radical-boards"
-                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
-                                >
-                                    Ver más
-                                </a>
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        duration={1.5}
+                        ease="power3.out"
+                        initialOpacity={0}
+                        scale={0.1}
+                        threshold={0.1}
+                        delay={0.05}
+                    >
+                        <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+                            <div className="bg-gray-200 h-40 flex items-center justify-center">
+                                <img
+                                    src="/images/tiendaSkate/store.png"
+                                    alt="Tienda Online"
+                                    className="h-40 w-full object-cover"
+                                />
+                            </div>
+                            <div className="p-4">
+                                <h4 className="font-semibold mb-2">Radical Boards</h4>
+                                <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
+                                    Diseño de E-commerce con gestión de productos, panel admin. Desarrollado con PHP y Laravel.
+                                </p>
+                                <div className="text-end w-10/12 mx-auto">
+                                    <a
+                                        href="/detalle-radical-boards"
+                                        className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
+                                    >
+                                        Ver más
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </AnimatedContent>
 
                     {/* Dental Art */}
-                    <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
-                        <div className="bg-gray-200 h-40 flex items-center justify-center">
-                            <img
-                                src="/images/clinicaDental/appointments.png"
-                                alt="Gestor de Citas"
-                                className="h-40 w-full object-cover"
-                            />
-                        </div>
-                        <div className="p-4">
-                            <h4 className="font-semibold mb-2">Dental Art</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
-                                Aplicación PWA para clínicas dentales con horarios, pacientes y servicios. Desarrollado con React y Tailwind.
-                            </p>
-                            <div className="text-end w-10/12 mx-auto">
-                                <a
-                                    href="/detalle-clinica-dental"
-                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
-                                >
-                                    Ver más
-                                </a>
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        duration={1.5}
+                        ease="power3.out"
+                        initialOpacity={0}
+                        scale={0.1}
+                        threshold={0.1}
+                        delay={0.05}
+                    >
+                        <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+                            <div className="bg-gray-200 h-40 flex items-center justify-center">
+                                <img
+                                    src="/images/clinicaDental/appointments.png"
+                                    alt="Gestor de Citas"
+                                    className="h-40 w-full object-cover"
+                                />
+                            </div>
+                            <div className="p-4">
+                                <h4 className="font-semibold mb-2">Dental Art</h4>
+                                <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
+                                    Aplicación PWA para clínicas dentales con horarios, pacientes y servicios. Desarrollado con React y Tailwind.
+                                </p>
+                                <div className="text-end w-10/12 mx-auto">
+                                    <a
+                                        href="/detalle-clinica-dental"
+                                        className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
+                                    >
+                                        Ver más
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </AnimatedContent>
 
                     {/* Epos Comercializadora */}
-                    <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
-                        <div className="bg-gray-200 h-40 flex items-center justify-center">
-                            <img
-                                src="/images/tiendaepos/store.png"
-                                alt="Proyecto tornillos"
-                                className="h-40 w-full object-cover"
-                            />
-                        </div>
-                        <div className="p-4">
-                            <h4 className="font-semibold mb-2">Epos comercializadora</h4>
-                            <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
-                                Diseño de interfaz para un E-commerce con giro de birlos y tornillos automotrices.
-                            </p>
-                            <div className="text-end w-10/12 mx-auto">
-                                <a
-                                    href="/detalle-tienda-epos"
-                                    className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
-                                >
-                                    Ver más
-                                </a>
+                    <AnimatedContent
+                        distance={150}
+                        direction="vertical"
+                        reverse={false}
+                        duration={1.5}
+                        ease="power3.out"
+                        initialOpacity={0}
+                        scale={0.1}
+                        threshold={0.1}
+                        delay={0.05}
+                    >
+                        <div className="bg-white rounded-xl shadow hover:shadow-lg overflow-hidden">
+                            <div className="bg-gray-200 h-40 flex items-center justify-center">
+                                <img
+                                    src="/images/tiendaepos/store.png"
+                                    alt="Proyecto tornillos"
+                                    className="h-40 w-full object-cover"
+                                />
+                            </div>
+                            <div className="p-4">
+                                <h4 className="font-semibold mb-2">Epos comercializadora</h4>
+                                <p className="text-sm text-gray-600 mb-4 text-justify w-11/12">
+                                    Diseño de interfaz para un E-commerce con giro de birlos y tornillos automotrices.
+                                </p>
+                                <div className="text-end w-10/12 mx-auto">
+                                    <a
+                                        href="/detalle-tienda-epos"
+                                        className="text-sm px-3 py-1 rounded bg-indigo-600 text-white hover:bg-blue-700"
+                                    >
+                                        Ver más
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </AnimatedContent>
+
+
+
                 </div>
             </section>
 
