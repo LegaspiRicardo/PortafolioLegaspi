@@ -6,6 +6,43 @@ import CircularGallery from "./components/CircularGallery";
 import './components/TextType.css';
 import './components/CircularGallery.css';
 
+// Componente WhatsAppButton
+const WhatsAppButton = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Mostrar el botón después de 300px de scroll
+            if (window.scrollY > 800) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Limpiar el event listener
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    return (
+        <a
+            href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-500 fixed top-20 right-8 z-50 ${isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-4 pointer-events-none'
+                }`}
+        >
+            WhatsApp
+        </a>
+    );
+};
 
 export default function Portfolio() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -124,10 +161,7 @@ export default function Portfolio() {
                         </div>
                     </div>
                 </AnimatedContent>
-
-
             </section>
-
 
             {/* SOBRE MI */}
             <section id="about" className="max-w-4xl mx-auto pt-36 pb-44 px-6 text-white">
@@ -145,7 +179,6 @@ export default function Portfolio() {
                     <h3 className="text-2xl font-bold mb-12">Sobre mí</h3>
                 </AnimatedContent>
 
-
                 <AnimatedContent
                     distance={150}
                     direction="horizontal"
@@ -162,7 +195,6 @@ export default function Portfolio() {
                         <br />
                         <br />
                         <br />
-
                     </p>
                 </AnimatedContent>
 
@@ -198,7 +230,6 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-bold mb-6 text-white">Proyectos</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {/* Casa Xavier */}
-
                     <AnimatedContent
                         distance={150}
                         direction="vertical"
@@ -345,9 +376,6 @@ export default function Portfolio() {
                             </div>
                         </div>
                     </AnimatedContent>
-
-
-
                 </div>
             </section>
 
@@ -355,22 +383,58 @@ export default function Portfolio() {
             <section id="contact" className="bg-gray-50 py-16 px-6">
                 <div className="max-w-3xl mx-auto">
                     <h3 className="text-2xl font-bold mb-6">Contacto</h3>
-                    <p>¿Quiere un sitio web para su negocio? </p>
+                    <p>¿Quiere un sitio web para su negocio?</p>
                     <br />
                     <p>¿Busca atraer clientes con su página?</p>
                     <br />
-                    <p>Escribame para conocer sus necesidades y potenciar su prescencia en internet.</p>
+                    <p>Escríbame para conocer sus necesidades y potenciar su presencia en internet.</p>
                     <br />
-                    <form className="grid gap-4 ">
-                        <input type="text" placeholder="Nombre" className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500" />
-                        <input type="email" placeholder="Correo" className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500" />
-                        <textarea placeholder="Mensaje" rows={4} className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500" />
-                        <button className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+
+                    {/* FORMULARIO */}
+                    <form
+                        action="https://formsubmit.co/ricardolegaspi483@gmail.com"
+                        method="POST"
+                        className="grid gap-4"
+                    >
+                        <input
+                            type="text"
+                            name="nombre"
+                            placeholder="Nombre"
+                            required
+                            className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500"
+                        />
+                        <input
+                            type="email"
+                            name="correo"
+                            placeholder="Correo"
+                            required
+                            className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500"
+                        />
+                        <textarea
+                            name="mensaje"
+                            placeholder="Mensaje"
+                            rows={4}
+                            required
+                            className="p-3 border border-indigo-500 rounded bg-white placeholder-indigo-500"
+                        />
+
+                        {/* Configuración opcional */}
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_next" value="https://tu-dominio.com/gracias" />
+
+                        <button
+                            type="submit"
+                            className="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+                        >
                             Enviar
                         </button>
                     </form>
                 </div>
             </section>
+
+
+            {/* BOTÓN DE WHATSAPP (aparece después del scroll) */}
+            <WhatsAppButton />
 
             {/* FOOTER */}
             <footer className="text-center py-6 text-sm text-gray-500 border-t">
