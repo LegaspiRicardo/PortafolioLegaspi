@@ -321,7 +321,7 @@ export default function Portfolio() {
                                 </p>
                                 <p className="text-gray-300 leading-relaxed text-justify">
                                     Mi objetivo en cada proyecto es diseñar y desarrollar soluciones innovadoras
-                                    que aporten valor a empresas y usuarios, combinando creatividad y tecnología
+                                    que aporten valor a empresas y usuarios. Combinando creatividad y tecnología
                                     para crear experiencias digitales excepcionales.
                                 </p>
                             </div>
