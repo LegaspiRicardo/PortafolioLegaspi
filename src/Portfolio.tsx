@@ -63,7 +63,6 @@ const BackgroundParticles = () => {
 
 export default function Portfolio() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [showMobileNavbar, setShowMobileNavbar] = useState(false);
     const [showMaskAnimation, setShowMaskAnimation] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
 
@@ -108,7 +107,6 @@ export default function Portfolio() {
     // Detectar scroll y sección activa
     useEffect(() => {
         const handleScroll = () => {
-            setShowMobileNavbar(window.scrollY > 800);
 
             // Detectar sección activa
             const sections = ['home', 'about', 'skills', 'projects', 'contact'];
