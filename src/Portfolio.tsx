@@ -137,7 +137,7 @@ export default function Portfolio() {
     const handleMaskAnimationEnd = () => setShowMaskAnimation(false);
 
     return (
-<div className={`min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white overflow-x-hidden ${showMaskAnimation ? "animate-mask" : ""}`} onAnimationEnd={handleMaskAnimationEnd}>
+        <div className={`min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white overflow-x-hidden ${showMaskAnimation ? "animate-mask" : ""}`} onAnimationEnd={handleMaskAnimationEnd}>
 
             {/* Partículas de fondo */}
             <BackgroundParticles />
@@ -160,8 +160,8 @@ export default function Portfolio() {
                                     key={link.name}
                                     href={link.href}
                                     className={`px-3 py-2 rounded-lg transition-all duration-300 ${activeSection === link.href.substring(1)
-                                            ? "text-green-400 bg-green-900/30"
-                                            : "text-gray-300 hover:text-white hover:bg-gray-800"
+                                        ? "text-green-400 bg-green-900/30"
+                                        : "text-gray-300 hover:text-white hover:bg-gray-800"
                                         }`}
                                 >
                                     {link.name}
@@ -213,8 +213,8 @@ export default function Portfolio() {
                                 key={link.name}
                                 href={link.href}
                                 className={`block px-4 py-3 rounded-lg transition-all duration-300 ${activeSection === link.href.substring(1)
-                                        ? "text-green-400 bg-green-900/30"
-                                        : "text-gray-300 hover:text-white hover:bg-gray-800"
+                                    ? "text-green-400 bg-green-900/30"
+                                    : "text-gray-300 hover:text-white hover:bg-gray-800"
                                     }`}
                                 onClick={() => setSidebarOpen(false)}
                             >
@@ -280,10 +280,11 @@ export default function Portfolio() {
                                         <span>Ver proyectos</span>
                                     </a>
                                     <a
-                                        href="#contact"
-                                        className="flex items-center justify-center bg-white/10 hover:bg-white/20 border border-green-500/30 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105"
+                                        href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
+                                        className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
+                                        rel="noopener noreferrer"
                                     >
-                                        Contactar
+                                        <span>Contactar</span>
                                     </a>
                                 </div>
                             </div>
@@ -397,7 +398,10 @@ export default function Portfolio() {
                                 duration={0.8}
                                 delay={index * 0.1}
                             >
-                                <div className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                                <a
+                                    href={project.link}
+                                    className="group block bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+                                >
                                     <div className="relative h-48 overflow-hidden">
                                         <img
                                             src={project.image}
@@ -405,32 +409,31 @@ export default function Portfolio() {
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                                         />
                                         <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
-                                            <a
-                                                href={project.link}
-                                                className="text-white font-semibold px-6 py-2 border-2 border-white rounded-lg hover:bg-white hover:text-green-600 transition-colors"
-                                            >
-                                                Ver más →
-                                            </a>
+                                            <div className="text-white font-semibold px-6 py-2 border-2 border-white rounded-lg group-hover:bg-white group-hover:text-green-600 transition-colors">
+                                                Ver detalles →
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div className="p-6">
-                                        <h4 className="font-bold text-xl mb-3 text-white">{project.title}</h4>
-                                        <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                                        <h4 className="font-bold text-xl mb-3 text-white group-hover:text-green-300 transition-colors">
+                                            {project.title}
+                                        </h4>
+                                        <p className="text-gray-300 text-sm mb-4 leading-relaxed group-hover:text-gray-200 transition-colors">
                                             {project.description}
                                         </p>
                                         <div className="flex flex-wrap gap-2">
                                             {project.tags.map(tag => (
                                                 <span
                                                     key={tag}
-                                                    className="px-3 py-1 bg-green-900/30 text-green-300 text-xs rounded-full border border-green-700/50"
+                                                    className="px-3 py-1 bg-green-900/30 text-green-300 text-xs rounded-full border border-green-700/50 group-hover:bg-green-800/50 transition-colors"
                                                 >
                                                     {tag}
                                                 </span>
                                             ))}
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </AnimatedContent>
                         ))}
                     </div>

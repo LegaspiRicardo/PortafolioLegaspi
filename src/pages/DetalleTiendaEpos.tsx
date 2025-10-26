@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AnimatedContent from "../components/AnimatedContent";
+import ImageModal from "../components/ImageModal";
 
 export default function DetalleTiendaEpos() {
+    const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null);
+
     // Scroll al top al cargar la página
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -47,8 +50,53 @@ export default function DetalleTiendaEpos() {
         { label: "Enfoque", value: "Mobile First Design" }
     ];
 
+    // Array de imágenes definido fuera del return
+    const images = [
+        {
+            src: "/images/tiendaepos/home.png",
+            alt: "Vista principal Epos",
+            title: "Página Principal",
+            description: "Diseño moderno y atractivo para la página de inicio"
+        },
+        {
+            src: "/images/tiendaepos/detail.png",
+            alt: "Vista detalle producto",
+            title: "Detalle de Producto",
+            description: "Vista completa con especificaciones técnicas y precios"
+        },
+        {
+            src: "/images/tiendaepos/profile.png",
+            alt: "Sección mi perfil",
+            title: "Perfil de Usuario",
+            description: "Gestión de cuenta y preferencias del cliente"
+        },
+        {
+            src: "/images/tiendaepos/store.png",
+            alt: "Sección tienda",
+            title: "Catálogo de Productos",
+            description: "Vista completa de la tienda con filtros y búsqueda"
+        }
+    ];
+
+    const openModal = (image: { src: string; alt: string; title: string }) => {
+        setSelectedImage(image);
+    };
+
+    const closeModal = () => {
+        setSelectedImage(null);
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white">
+            {/* Image Modal */}
+            <ImageModal
+                isOpen={selectedImage !== null}
+                onClose={closeModal}
+                imageSrc={selectedImage?.src || ""}
+                imageAlt={selectedImage?.alt || ""}
+                title={selectedImage?.title}
+            />
+
             {/* Hero Section */}
             <section className="relative pt-20 pb-16 px-4">
                 <div className="max-w-6xl mx-auto">
@@ -64,8 +112,8 @@ export default function DetalleTiendaEpos() {
                     <AnimatedContent distance={80} direction="horizontal" duration={1.2} delay={0.3}>
                         <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
                             <p className="text-xl text-green-200 text-justify leading-relaxed">
-                                Diseño de interfaz para tienda online especializada en birlos, tornillos y accesorios automotrices.
-                                Plataforma con catálogo completo, filtrado por tipo de vehículo y aplicación, 
+                                Diseño de interfaz para una tienda online especializada en birlos, tornillos y accesorios automotrices.
+                                Contará con catálogo completo, filtrado por tipo de vehículo y aplicación, 
                                 con diseño moderno y experiencia de usuario optimizada para dispositivos móviles.
                             </p>
                         </div>
@@ -82,38 +130,13 @@ export default function DetalleTiendaEpos() {
                                 Diseño de Interfaz
                             </h2>
                             <p className="text-green-200 text-lg">
-                                Prototipos y vistas de la aplicación Epos Comercializadora
+                                Haz click en cualquier imagen para verla en tamaño completo
                             </p>
                         </div>
                     </AnimatedContent>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {[
-                            {
-                                src: "/images/tiendaepos/home.png",
-                                alt: "Vista principal Epos",
-                                title: "Página Principal",
-                                description: "Diseño moderno y atractivo para la página de inicio"
-                            },
-                            {
-                                src: "/images/tiendaepos/detail.png",
-                                alt: "Vista detalle producto",
-                                title: "Detalle de Producto",
-                                description: "Vista completa con especificaciones técnicas y precios"
-                            },
-                            {
-                                src: "/images/tiendaepos/profile.png",
-                                alt: "Sección mi perfil",
-                                title: "Perfil de Usuario",
-                                description: "Gestión de cuenta y preferencias del cliente"
-                            },
-                            {
-                                src: "/images/tiendaepos/store.png",
-                                alt: "Sección tienda",
-                                title: "Catálogo de Productos",
-                                description: "Vista completa de la tienda con filtros y búsqueda"
-                            }
-                        ].map((image, index) => (
+                        {images.map((image: { src: string; alt: string; title: string }, index: number) => (
                             <AnimatedContent
                                 key={image.src}
                                 distance={60}
@@ -121,7 +144,10 @@ export default function DetalleTiendaEpos() {
                                 duration={0.8}
                                 delay={index * 0.2}
                             >
-                                <div className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                                <div 
+                                    className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+                                    onClick={() => openModal(image)}
+                                >
                                     <div className="relative h-64 overflow-hidden">
                                         <img 
                                             src={image.src} 
@@ -131,7 +157,7 @@ export default function DetalleTiendaEpos() {
                                         <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
                                             <div className="text-center text-white p-4">
                                                 <h3 className="font-semibold text-lg mb-2">{image.title}</h3>
-                                                <p className="text-sm opacity-90">{image.description}</p>
+                                                <p className="text-sm opacity-90">Click para expandir</p>
                                             </div>
                                         </div>
                                     </div>
@@ -148,13 +174,13 @@ export default function DetalleTiendaEpos() {
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
                             <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
-                                Especialización Automotriz
+                                Características
                             </h2>
                         </div>
                     </AnimatedContent>
 
                     <div className="grid md:grid-cols-3 gap-8 mb-16">
-                        {projectSpecs.map((spec, index) => (
+                        {projectSpecs.map((spec: { icon: string; title: string; description: string }, index: number) => (
                             <AnimatedContent
                                 key={spec.title}
                                 distance={60}
@@ -179,7 +205,7 @@ export default function DetalleTiendaEpos() {
                                     Funcionalidades Principales
                                 </h3>
                                 <div className="space-y-4">
-                                    {features.map((feature, index) => (
+                                    {features.map((feature: string, index: number) => (
                                         <div 
                                             key={index}
                                             className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-green-500/10 hover:border-green-500/30 transition-all duration-300 hover:scale-105"
@@ -200,7 +226,7 @@ export default function DetalleTiendaEpos() {
                                         Stack Tecnológico
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
-                                        {technologies.map((tech, index) => (
+                                        {technologies.map((tech: string, index: number) => (
                                             <span 
                                                 key={tech}
                                                 className="px-4 py-2 bg-green-900/30 text-green-300 rounded-full border border-green-700/50 text-sm font-medium hover:bg-green-900/50 hover:scale-105 transition-all duration-300"
@@ -216,7 +242,7 @@ export default function DetalleTiendaEpos() {
                                 <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6">
                                     <h4 className="text-xl font-semibold text-green-300 mb-4">Especificaciones Técnicas</h4>
                                     <div className="space-y-3 text-gray-300">
-                                        {technicalDetails.map((detail, index) => (
+                                        {technicalDetails.map((detail: { label: string; value: string }, index: number) => (
                                             <div key={index} className="flex justify-between items-center py-2 border-b border-green-500/10 last:border-b-0">
                                                 <span className="text-green-200">{detail.label}:</span>
                                                 <span className="text-green-300 font-medium">{detail.value}</span>
@@ -298,7 +324,7 @@ export default function DetalleTiendaEpos() {
                 <div className="max-w-4xl mx-auto text-center">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
-                            ¿Necesitas un diseño similar?
+                            ¿Necesita un diseño similar?
                         </h2>
                         <p className="text-green-200 text-lg mb-8 max-w-2xl mx-auto">
                             Puedo crear una interfaz moderna y funcional para su negocio.
@@ -312,10 +338,11 @@ export default function DetalleTiendaEpos() {
                                 <span>← Volver al portafolio</span>
                             </a>
                             <a
-                                href="#contact"
-                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105"
-                            >
-                                <span>Solicitar diseño</span>
+                                href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
+                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
+                                rel="noopener noreferrer"
+                            >        
+                                <span>Solicitar cotización</span>
                             </a>
                         </div>
                     </AnimatedContent>
