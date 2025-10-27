@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AnimatedContent from "../components/AnimatedContent";
 import ImageModal from "../components/ImageModal";
+import BackButton from "../components/BackButton";
 
 export default function DetalleDDS() {
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null);
@@ -88,6 +89,15 @@ export default function DetalleDDS() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white">
+
+            {/* Botón volver */}
+            <BackButton
+                targetPath="/"
+                showText={true}
+                position="bottom-left"
+                className="bg-zinc-300 text-black hover:bg-green-700"
+            />
+
             {/* Image Modal */}
             <ImageModal
                 isOpen={selectedImage !== null}
@@ -340,7 +350,7 @@ export default function DetalleDDS() {
                                 href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
                                 className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
                                 rel="noopener noreferrer"
-                            >        
+                            >
                                 <span>Solicitar cotización</span>
                             </a>
                         </div>

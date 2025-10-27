@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AnimatedContent from "../components/AnimatedContent";
 import ImageModal from "../components/ImageModal";
+import BackButton from "../components/BackButton";
 
 export default function DetalleRadicalBoards() {
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null);
@@ -74,6 +75,14 @@ export default function DetalleRadicalBoards() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white">
+
+            {/* Botón volver */}
+            <BackButton
+                targetPath="/"
+                showText={true}
+                position="bottom-left"
+                className="bg-zinc-300 text-black hover:bg-green-700"
+            />
             {/* Image Modal */}
             <ImageModal
                 isOpen={selectedImage !== null}
@@ -99,7 +108,7 @@ export default function DetalleRadicalBoards() {
                         <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
                             <p className="text-xl text-green-200 text-justify leading-relaxed">
                                 Tienda online especializada en skates, tablas, accesorios y ropa urbana para skaters.
-                                E-commerce completo con catálogo extenso, diseño moderno y experiencia de usuario 
+                                E-commerce completo con catálogo extenso, diseño moderno y experiencia de usuario
                                 optimizada para dispositivos móviles y escritorio.
                             </p>
                         </div>
@@ -130,13 +139,13 @@ export default function DetalleRadicalBoards() {
                                 duration={0.8}
                                 delay={index * 0.2}
                             >
-                                <div 
+                                <div
                                     className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
                                     onClick={() => openModal(image)}
                                 >
                                     <div className="relative h-64 overflow-hidden">
-                                        <img 
-                                            src={image.src} 
+                                        <img
+                                            src={image.src}
                                             alt={image.alt}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
@@ -192,7 +201,7 @@ export default function DetalleRadicalBoards() {
                                 </h3>
                                 <div className="space-y-4">
                                     {features.map((feature: string, index: number) => (
-                                        <div 
+                                        <div
                                             key={index}
                                             className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-green-500/10 hover:border-green-500/30 transition-all duration-300 hover:scale-105"
                                         >
@@ -213,7 +222,7 @@ export default function DetalleRadicalBoards() {
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
                                         {technologies.map((tech: string, index: number) => (
-                                            <span 
+                                            <span
                                                 key={tech}
                                                 className="px-4 py-2 bg-green-900/30 text-green-300 rounded-full border border-green-700/50 text-sm font-medium hover:bg-green-900/50 hover:scale-105 transition-all duration-300"
                                                 style={{ animationDelay: `${index * 0.1}s` }}
@@ -262,7 +271,7 @@ export default function DetalleRadicalBoards() {
                         <p className="text-green-200 text-lg mb-8 max-w-2xl mx-auto text-justify">
                             Puedo desarrollar una tienda online personalizada para su negocio.
                         </p>
-                        
+
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="/"
@@ -274,7 +283,7 @@ export default function DetalleRadicalBoards() {
                                 href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
                                 className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
                                 rel="noopener noreferrer"
-                            >        
+                            >
                                 <span>Solicitar cotización</span>
                             </a>
                         </div>
@@ -293,7 +302,7 @@ export default function DetalleRadicalBoards() {
                             Especialista en desarrollo de e-commerce y aplicaciones web
                         </p>
                     </div>
-                    
+
                     <div className="border-t border-green-700/30 pt-8">
                         <p className="text-gray-400">
                             © {new Date().getFullYear()} Portafolio - RL. Todos los derechos reservados.
