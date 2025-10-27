@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import emailjs from '@emailjs/browser';
 import TextType from "./components/TextType";
 import AnimatedContent from "./components/AnimatedContent";
 import CircularGallery from "./components/CircularGallery";
@@ -65,6 +66,56 @@ export default function Portfolio() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [showMaskAnimation, setShowMaskAnimation] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
+    const [isSending, setIsSending] = useState(false);
+    const form = useRef<HTMLFormElement>(null);
+
+    // Mover la función sendEmail dentro del componente
+    const sendEmail = (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSending(true);
+
+        if (form.current) {
+            // Agregar fecha actual al formulario
+            const currentDate = new Date().toLocaleString('es-MX', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            // Crear un input hidden para la fecha
+            const dateInput = document.createElement('input');
+            dateInput.type = 'hidden';
+            dateInput.name = 'date';
+            dateInput.value = currentDate;
+            form.current.appendChild(dateInput);
+
+            emailjs.sendForm(
+                'service_3jsegqu', // Reemplaza con tu Service ID
+                'template_7g0y3zs', // Reemplaza con tu Template ID
+                form.current,
+                'dmDCu0QnbO62UXqsL' // Reemplaza con tu Public Key
+            )
+                .then((result) => {
+                    console.log('Email enviado:', result.text);
+                    alert('¡Mensaje enviado correctamente! Te responderé pronto.');
+                    form.current?.reset();
+                    setIsSending(false);
+                })
+                .catch((error) => {
+                    console.error('Error:', error.text);
+                    alert('Error al enviar el mensaje. Por favor, intenta de nuevo o contáctame directamente por WhatsApp.');
+                    setIsSending(false);
+                })
+                .finally(() => {
+                    // Remover el input de fecha
+                    if (form.current && form.current.contains(dateInput)) {
+                        form.current.removeChild(dateInput);
+                    }
+                });
+        }
+    };
 
     const links = [
         { name: "Sobre mí", href: "#about" },
@@ -96,6 +147,13 @@ export default function Portfolio() {
             tags: ["React", "PWA", "Tailwind"]
         },
         {
+            title: "Diesel Dynamics Service",
+            description: "Sitio web corporativo para empresa especializada en servicio y mantenimiento de motores diesel. Diseño moderno y funcional.",
+            image: "/images/dds/homedds.png",
+            link: "/detalle-diesel-dynamics",
+            tags: ["HTML5", "CSS3", "JavaScript", "React", "Responsive"]
+        },
+        {
             title: "Epos Comercializadora",
             description: "Diseño de interfaz para un E-commerce con giro de birlos y tornillos automotrices.",
             image: "/images/tiendaepos/store.png",
@@ -107,7 +165,6 @@ export default function Portfolio() {
     // Detectar scroll y sección activa
     useEffect(() => {
         const handleScroll = () => {
-
             // Detectar sección activa
             const sections = ['home', 'about', 'skills', 'projects', 'contact'];
             const current = sections.find(section => {
@@ -228,8 +285,6 @@ export default function Portfolio() {
             {/* Hero Section */}
             <section id="home" className="min-h-screen flex items-center justify-center relative px-4 pt-16">
                 <div className="max-w-4xl mx-auto text-center">
-
-
                     {/* Typing animations */}
                     <TextType
                         text="¡Hola mundo!"
@@ -259,13 +314,6 @@ export default function Portfolio() {
                     >
                         <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-2xl p-8 md:p-12 max-w-md mx-auto">
                             <div className="space-y-6">
-                                {/* Avatar 
-                                <div className="w-24 h-24 mx-auto bg-gradient-to-r from-green-500 to-emerald-600 rounded-full p-1">
-                                    <div className="w-full h-full bg-gray-900 rounded-full flex items-center justify-center">
-                                        <span className="text-2xl">👨‍💻</span>
-                                    </div>
-                                </div>*/}
-
                                 <div>
                                     <h2>Soy</h2>
                                     <h2 className="text-3xl font-bold text-white mb-2">Ricardo Legaspi</h2>
@@ -291,13 +339,6 @@ export default function Portfolio() {
                         </div>
                     </AnimatedContent>
                 </div>
-
-                {/* Scroll Indicator 
-                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-                    <div className="w-6 h-10 border-2 border-green-400 rounded-full flex justify-center">
-                        <div className="w-1 h-3 bg-green-400 rounded-full mt-2 animate-bounce"></div>
-                    </div>
-                </div>*/}
             </section>
 
             {/* About Section */}
@@ -470,15 +511,15 @@ export default function Portfolio() {
                         {/* Contact Form */}
                         <AnimatedContent distance={80} direction="horizontal" duration={1.2} delay={0.2}>
                             <form
-                                action="https://formsubmit.co/ricardolegaspi483@gmail.com"
-                                method="POST"
+                                ref={form}
+                                onSubmit={sendEmail}
                                 className="space-y-6"
                             >
                                 <div>
                                     <input
                                         type="text"
-                                        name="nombre"
-                                        placeholder="Nombre"
+                                        name="user_name"
+                                        placeholder="Tu nombre"
                                         required
                                         className="w-full px-4 py-3 bg-white/5 border border-green-500/30 rounded-lg text-white placeholder-green-200 focus:outline-none focus:border-green-500 transition-colors"
                                     />
@@ -486,30 +527,36 @@ export default function Portfolio() {
                                 <div>
                                     <input
                                         type="email"
-                                        name="correo"
-                                        placeholder="Correo electrónico"
+                                        name="user_email"
+                                        placeholder="Tu correo electrónico"
                                         required
                                         className="w-full px-4 py-3 bg-white/5 border border-green-500/30 rounded-lg text-white placeholder-green-200 focus:outline-none focus:border-green-500 transition-colors"
                                     />
                                 </div>
                                 <div>
                                     <textarea
-                                        name="mensaje"
+                                        name="message"
                                         placeholder="Cuéntame sobre tu proyecto..."
                                         rows={5}
                                         required
-                                        className="w-full px-4 py-3 bg-white/5 border border-green-500/30 rounded-lg text-white placeholder-green-200 focus:outline-none focus:border-green-500 transition-colors resize-none"
+                                        defaultValue="¡Hola! Ví tu portafolio y me interesa contactarte para un proyecto de desarrollo web. ¿Podrías darme más información sobre tus servicios?"
+                                        className="w-full px-4 py-3 bg-white/5 border border-green-500/30 rounded-lg text-green-300 placeholder-green-200 focus:outline-none focus:border-green-500 transition-colors resize-none"
                                     />
                                 </div>
 
-                                <input type="hidden" name="_captcha" value="false" />
-                                <input type="hidden" name="_next" value="https://tu-dominio.com/gracias" />
-
                                 <button
                                     type="submit"
-                                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+                                    disabled={isSending}
+                                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    <span>Enviar mensaje</span>
+                                    {isSending ? (
+                                        <>
+                                            <span>Enviando...</span>
+                                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                        </>
+                                    ) : (
+                                        <span>Enviar mensaje</span>
+                                    )}
                                 </button>
                             </form>
                         </AnimatedContent>

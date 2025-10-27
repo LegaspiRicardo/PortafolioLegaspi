@@ -10,6 +10,7 @@ import DetalleCasaXavier from "./pages/DetalleCasaXavier";
 import DetalleRadicalBoards from "./pages/DetalleRadicalBoards";
 import DetalleClinicaDental from "./pages/DetalleClinicaDental";
 import DetalleTiendaEpos from "./pages/DetalleTiendaEpos";
+import DetalleDDS from "./pages/DetalleDDS";
 
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/detalle-radical-boards" element={<DetalleRadicalBoards />} />
         <Route path="/detalle-clinica-dental" element={<DetalleClinicaDental />} />
         <Route path="/detalle-tienda-epos" element={<DetalleTiendaEpos />} />
+        <Route path="/detalle-diesel-dynamics" element={<DetalleDDS />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
