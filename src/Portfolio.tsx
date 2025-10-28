@@ -195,7 +195,6 @@ export default function Portfolio() {
 
     return (
         <div className={`min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white overflow-x-hidden ${showMaskAnimation ? "animate-mask" : ""}`} onAnimationEnd={handleMaskAnimationEnd}>
-
             {/* Partículas de fondo */}
             <BackgroundParticles />
 
@@ -242,8 +241,7 @@ export default function Portfolio() {
             </header>
 
             {/* Mobile Sidebar */}
-            <div className={`fixed inset-0 z-50 md:hidden transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
-                }`}>
+            <div className={`fixed inset-0 z-50 md:hidden transition-transform duration-300 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 {/* Overlay */}
                 <div
                     className="absolute inset-0 bg-black/50"
@@ -284,7 +282,7 @@ export default function Portfolio() {
 
             {/* Hero Section */}
             <section id="home" className="min-h-screen flex items-center justify-center relative px-4 pt-16">
-                <div className="max-w-4xl mx-auto text-center">
+                <div className="max-w-4xl mx-auto text-center w-full">
                     {/* Typing animations */}
                     <TextType
                         text="¡Hola mundo!"
