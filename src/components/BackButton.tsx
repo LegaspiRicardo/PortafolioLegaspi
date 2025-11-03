@@ -49,7 +49,7 @@ const BackButton: React.FC<BackButtonProps> = ({
         fixed flex items-center gap-2 
         shadow-lg z-50
         transition-all duration-200 
-        hover:scale-105 active:scale-95
+        hover:scale-105 active:scale-95 hover:text-white hover:border-none
         ${getPositionStyles()}
         ${getSizeStyles()}
         ${className}
