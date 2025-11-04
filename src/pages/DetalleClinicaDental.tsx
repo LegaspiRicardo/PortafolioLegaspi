@@ -84,7 +84,7 @@ export default function DetalleClinicaDental() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900/60 text-white">
             {/* Botón volver */}
             <BackButton
                 targetPath="/"
@@ -106,16 +106,16 @@ export default function DetalleClinicaDental() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-8">
-                            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r text-white bg-clip-text text-transparent mb-6">
                                 Dental - Art
                             </h1>
-                            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-8 rounded-full"></div>
+                            <div className="w-24 h-1 bg-gradient-to-r from-gray-500 to-white mx-auto mb-8 rounded-full"></div>
                         </div>
                     </AnimatedContent>
 
                     <AnimatedContent distance={80} direction="horizontal" duration={1.2} delay={0.3}>
-                        <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
-                            <p className="text-xl text-green-200 text-justify leading-relaxed">
+                        <div className="bg-white/5 backdrop-blur-lg border border-gray-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+                            <p className="text-xl text-white text-justify leading-relaxed">
                                 Aplicación Web Progresiva (PWA) diseñada específicamente para clínicas dentales,
                                 que permite gestionar pacientes, dentistas, horarios y citas de manera eficiente
                                 con capacidad de funcionamiento offline.
@@ -130,10 +130,10 @@ export default function DetalleClinicaDental() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-4">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r text-white bg-clip-text text-transparent mb-4">
                                 Galería del Sistema
                             </h2>
-                            <p className="text-green-200 text-lg">
+                            <p className="text-gray-400 text-lg">
                                 Haz click en cualquier imagen para verla en tamaño completo
                             </p>
                         </div>
@@ -149,7 +149,7 @@ export default function DetalleClinicaDental() {
                                 delay={index * 0.2}
                             >
                                 <div
-                                    className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+                                    className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden  transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
                                     onClick={() => openModal(image)}
                                 >
                                     <div className="relative h-64 overflow-hidden">
@@ -158,7 +158,7 @@ export default function DetalleClinicaDental() {
                                             alt={image.alt}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
+                                        <div className="absolute inset-0 bg-green-600/0 group-hover:bg-gray-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
                                             <div className="text-center text-white p-4">
                                                 <h3 className="font-semibold text-lg mb-2">{image.title}</h3>
                                                 <p className="text-sm opacity-90">Click para expandir</p>
@@ -179,7 +179,7 @@ export default function DetalleClinicaDental() {
                         {/* Características */}
                         <AnimatedContent distance={80} direction="left" duration={1.2}>
                             <div>
-                                <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-8">
+                                <h2 className="text-4xl font-bold bg-gradient-to-r text-white bg-clip-text text-transparent mb-8">
                                     Funcionalidades Principales
                                 </h2>
                                 <div className="space-y-4">
@@ -188,7 +188,7 @@ export default function DetalleClinicaDental() {
                                             key={index}
                                             className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-green-500/10 hover:border-green-500/30 transition-all duration-300 hover:scale-105"
                                         >
-                                            <span className="text-green-400 mt-1 flex-shrink-0">✓</span>
+                                            <span className="text-gray-400 mt-1 flex-shrink-0">✓</span>
                                             <span className="text-gray-300">{feature}</span>
                                         </div>
                                     ))}
@@ -208,7 +208,7 @@ export default function DetalleClinicaDental() {
                                         {technologies.map((tech: string, index: number) => (
                                             <span
                                                 key={tech}
-                                                className="px-4 py-2 bg-green-900/30 text-green-300 rounded-full border border-green-700/50 text-sm font-medium hover:bg-green-900/50 hover:scale-105 transition-all duration-300"
+                                                className="px-4 py-2 bg-gray-900/30 text-white rounded-full border border-white text-sm font-medium hover:bg-gray-900/50 hover:scale-105 transition-all duration-300"
                                                 style={{ animationDelay: `${index * 0.1}s` }}
                                             >
                                                 {tech}
@@ -219,12 +219,12 @@ export default function DetalleClinicaDental() {
 
                                 {/* Detalles Técnicos */}
                                 <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6">
-                                    <h4 className="text-xl font-semibold text-green-300 mb-4">Especificaciones Técnicas</h4>
+                                    <h4 className="text-xl font-semibold text-white mb-4">Especificaciones Técnicas</h4>
                                     <div className="space-y-3 text-gray-300">
                                         {technicalDetails.map((detail: { label: string; value: string }, index: number) => (
                                             <div key={index} className="flex justify-between items-center py-2 border-b border-green-500/10 last:border-b-0">
-                                                <span className="text-green-200">{detail.label}:</span>
-                                                <span className="text-green-300 font-medium">{detail.value}</span>
+                                                <span className="text-gray-200">{detail.label}:</span>
+                                                <span className="text-gray-300 font-medium">{detail.value}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -240,7 +240,7 @@ export default function DetalleClinicaDental() {
                 <div className="max-w-4xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r text-white bg-clip-text text-transparent mb-6">
                                 Ventajas como PWA
                             </h2>
                         </div>
@@ -255,10 +255,10 @@ export default function DetalleClinicaDental() {
                                 duration={0.8}
                                 delay={index * 0.2}
                             >
-                                <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6 text-center hover:border-green-500/50 hover:scale-105 transition-all duration-300">
+                                <div className="bg-white/5 backdrop-blur-lg border border-white/50 rounded-xl p-6 text-center hover:border-gray-500/50 hover:scale-105 transition-all duration-300">
                                     <div className="text-4xl mb-4">{benefit.icon}</div>
-                                    <h3 className="text-xl font-semibold text-green-300 mb-3">{benefit.title}</h3>
-                                    <p className="text-gray-300 text-sm">{benefit.description}</p>
+                                    <h3 className="text-xl font-semibold text-white mb-3">{benefit.title}</h3>
+                                    <p className="text-gray-400 text-sm">{benefit.description}</p>
                                 </div>
                             </AnimatedContent>
                         ))}
@@ -270,10 +270,10 @@ export default function DetalleClinicaDental() {
             <section className="py-16 px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
-                        <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                        <h2 className="text-4xl font-bold bg-gradient-to-r text-white bg-clip-text text-transparent mb-6">
                             ¿Le gustó este proyecto?
                         </h2>
-                        <p className="text-green-200 text-lg mb-8 max-w-2xl mx-auto text-justify">
+                        <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto text-justify">
                             Si necesita un sistema similar para su negocio o tiene un proyecto en mente, no dude en contactarme.
                         </p>
 
@@ -286,7 +286,7 @@ export default function DetalleClinicaDental() {
                             </a>
                             <a
                                 href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
-                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border hover:text-white border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
+                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border hover:text-white border-none text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <span>Solicitar cotización</span>

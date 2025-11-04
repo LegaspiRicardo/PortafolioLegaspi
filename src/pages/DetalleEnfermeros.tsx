@@ -3,7 +3,7 @@ import AnimatedContent from "../components/AnimatedContent";
 import ImageModal from "../components/ImageModal";
 import BackButton from "../components/BackButton";
 
-export default function DetalleDDS() {
+export default function DetalleEnfermeros() {
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null);
 
     // Scroll al top al cargar la página
@@ -11,83 +11,71 @@ export default function DetalleDDS() {
         window.scrollTo(0, 0);
     }, []);
 
-    const technologies = ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Responsive Design", "UX/UI Design", "SEO Optimization"];
+    const technologies = ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS", "Responsive Design", "UX/UI Design", "SEO Optimization", "Google Maps API"];
 
     const features = [
-        "Diseño moderno y profesional para empresa de servicio diesel",
-        "Sección de servicios con carrusel interactivo",
-        "Catálogo de marcas de refacciones",
-        "Sistema de contacto integrado con formulario funcional",
+        "Diseño moderno y confiable para servicio de enfermería a domicilio",
+        "Catálogo completo de servicios de enfermería y cuidados",
+        "Sistema de citas y solicitud de servicios integrado",
         "Diseño responsivo para todos los dispositivos",
-        "Integración de Google Maps para ubicación del negocio",
-        "Botón de WhatsApp flotante para comunicación inmediata",
+        "Botón de contacto inmediato para emergencias",
+        "Formularios de contacto y cotización",
+        "Blog informativo sobre cuidados de salud",
         "Optimización para motores de búsqueda (SEO)"
     ];
 
     const projectHighlights = [
         {
-            icon: "🚛",
-            title: "Especializado Diesel",
-            description: "Diseño enfocado en el sector de servicio pesado"
+            icon: "🏥",
+            title: "Especializado en Salud",
+            description: "Diseño enfocado en confianza y profesionalismo médico"
         },
         {
             icon: "⚡",
-            title: "Alto Rendimiento",
-            description: "Optimizado para carga rápida y experiencia fluida"
+            title: "Acceso Rápido",
+            description: "Interfaz optimizada para solicitudes urgentes de cuidado"
         },
         {
             icon: "📱",
             title: "Mobile First",
-            description: "Diseño perfecto en dispositivos móviles"
+            description: "Experiencia perfecta en dispositivos móviles"
         }
     ];
 
     const technicalDetails = [
         { label: "Tipo de Proyecto", value: "Sitio Web Corporativo" },
-        { label: "Industria", value: "Servicio Automotriz Diesel" },
+        { label: "Industria", value: "Servicios de Salud a Domicilio" },
         { label: "Tecnologías", value: "HTML5, CSS3, JavaScript" },
         { label: "Framework", value: "React + Tailwind CSS" },
         { label: "Característica", value: "Diseño Responsivo" },
-        { label: "Enfoque", value: "Experiencia de Usuario" }
+        { label: "Enfoque", value: "Experiencia de Usuario y Fácil Contacto" }
     ];
 
-    // Array de imágenes definido fuera del return
+
     const images = [
         {
-            src: "/images/dds/homedds.png",
-            alt: "Página principal DDS",
+            src: "/images/enfermeros/home.png",
+            alt: "Página principal Enfermeros a Domicilio",
             title: "Página Principal",
-            description: "Diseño moderno y atractivo para la página de inicio"
+            description: "Diseño profesional y confiable para servicios de enfermería"
         },
         {
-            src: "/images/dds/servicedds.png",
-            alt: "Sección de servicios DDS",
-            title: "Servicios Especializados",
-            description: "Catálogo completo de servicios diesel y gasolina"
+            src: "/images/enfermeros/services.png",
+            alt: "Sección de servicios de enfermería",
+            title: "Servicios de Enfermería",
+            description: "Catálogo completo de cuidados y servicios médicos"
         },
         {
-            src: "/images/dds/rescatedds.png",
-            alt: "Sección de rescate urgente DDS",
-            title: "Rescate Urgente",
-            description: "Sección destacada para emergencias y contacto inmediato"
+            src: "/images/enfermeros/contact.png",
+            alt: "Sección de contacto",
+            title: "Contacto y Cobertura",
+            description: "Formulario de contacto e información de zonas de servicio"
         },
         {
-            src: "/images/dds/contactdds.png",
-            alt: "Sección de contacto DDS",
-            title: "Contacto y Ubicación",
-            description: "Formulario de contacto e información de ubicación"
-        },
-        {
-            src: "/images/dds/galeriadds.png",
-            alt: "Sección de galería DDS",
-            title: "Galería de fotos",
-            description: "Sección de galería del sitio."
-        },
-        {
-            src: "/images/dds/detalleserviciodds.PNG",
-            alt: "Vista de sección detalle servicio",
-            title: "Detalle de servicio",
-            description: "Detalle de servicio."
+            src: "/images/enfermeros/gallery.png",
+            alt: "Sección de galería",
+            title: "Galería de Servicios",
+            description: "Artículos informativos sobre cuidados y salud"
         }
     ];
 
@@ -100,14 +88,14 @@ export default function DetalleDDS() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-red-900/60 text-white">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-800 to-blue-900/60 text-white">
 
             {/* Botón volver */}
             <BackButton
                 targetPath="/"
                 showText={true}
                 position="bottom-left"
-                className="bg-zinc-300 text-black hover:bg-red-700"
+                className="bg-zinc-300 text-black hover:bg-blue-700"
             />
 
             {/* Image Modal */}
@@ -124,18 +112,19 @@ export default function DetalleDDS() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-8">
-                            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-6">
-                                Diesel Dynamics Service
+                            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-6">
+                                Enfermeros a Domicilio
                             </h1>
-                            <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-600 mx-auto mb-8 rounded-full"></div>
+                            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto mb-8 rounded-full"></div>
                         </div>
                     </AnimatedContent>
 
                     <AnimatedContent distance={80} direction="horizontal" duration={1.2} delay={0.3}>
-                        <div className="bg-white/5 backdrop-blur-lg border border-red-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
-                            <p className="text-xl text-red-200 text-justify leading-relaxed">
-                                Sitio web para empresa especializada en servicio y mantenimiento de motores diesel.
-                                Diseño moderno y funcional que refleja la profesionalidad y experiencia de más de 9 años en el sector.
+                        <div className="bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+                            <p className="text-xl text-blue-200 text-justify leading-relaxed">
+                                Sitio web para servicio profesional de enfermería a domicilio. 
+                                Diseño accesible que transmite seguridad y profesionalismo, 
+                                facilitando el acceso a cuidados médicos especializados en la comodidad del hogar.
                             </p>
                         </div>
                     </AnimatedContent>
@@ -147,10 +136,10 @@ export default function DetalleDDS() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-4">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-4">
                                 Diseño del Sitio Web
                             </h2>
-                            <p className="text-red-200 text-lg">
+                            <p className="text-blue-200 text-lg">
                                 Haz click en cualquier imagen para verla en tamaño completo
                             </p>
                         </div>
@@ -166,7 +155,7 @@ export default function DetalleDDS() {
                                 delay={index * 0.2}
                             >
                                 <div
-                                    className="group bg-white/5 backdrop-blur-lg border border-red-500/20 rounded-xl overflow-hidden hover:border-red-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+                                    className="group bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-xl overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
                                     onClick={() => openModal(image)}
                                 >
                                     <div className="relative h-64 overflow-hidden">
@@ -175,7 +164,7 @@ export default function DetalleDDS() {
                                             alt={image.alt}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
+                                        <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
                                             <div className="text-center text-white p-4">
                                                 <h3 className="font-semibold text-lg mb-2">{image.title}</h3>
                                                 <p className="text-sm opacity-90">Click para expandir</p>
@@ -194,8 +183,8 @@ export default function DetalleDDS() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-6">
-                                Caracteristicas del negocio
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-6">
+                                Características del Sitio Web
                             </h2>
                         </div>
                     </AnimatedContent>
@@ -209,9 +198,9 @@ export default function DetalleDDS() {
                                 duration={0.8}
                                 delay={index * 0.2}
                             >
-                                <div className="bg-white/5 backdrop-blur-lg border border-red-500/20 rounded-xl p-6 text-center hover:border-red-500/50 hover:scale-105 transition-all duration-300 h-full">
+                                <div className="bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-xl p-6 text-center hover:border-blue-500/50 hover:scale-105 transition-all duration-300 h-full">
                                     <div className="text-4xl mb-4">{highlight.icon}</div>
-                                    <h3 className="text-xl font-semibold text-red-300 mb-3">{highlight.title}</h3>
+                                    <h3 className="text-xl font-semibold text-blue-300 mb-3">{highlight.title}</h3>
                                     <p className="text-gray-300 text-sm">{highlight.description}</p>
                                 </div>
                             </AnimatedContent>
@@ -222,16 +211,16 @@ export default function DetalleDDS() {
                         {/* Funcionalidades */}
                         <AnimatedContent distance={80} direction="left" duration={1.2}>
                             <div>
-                                <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-6">
+                                <h3 className="text-3xl font-bold bg-gradient-to-r from-white text-center to-blue-300 bg-clip-text text-transparent mb-6">
                                     Funcionalidades Implementadas
                                 </h3>
                                 <div className="space-y-4">
                                     {features.map((feature: string, index: number) => (
                                         <div
                                             key={index}
-                                            className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-red-500/10 hover:border-red-500/30 transition-all duration-300 hover:scale-105"
+                                            className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 hover:scale-105"
                                         >
-                                            <span className="text-red-400 mt-1 flex-shrink-0">✓</span>
+                                            <span className="text-blue-400 mt-1 flex-shrink-0">✓</span>
                                             <span className="text-gray-300">{feature}</span>
                                         </div>
                                     ))}
@@ -243,14 +232,14 @@ export default function DetalleDDS() {
                         <AnimatedContent distance={80} direction="right" duration={1.2} delay={0.2}>
                             <div className="space-y-8">
                                 <div>
-                                    <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-6">
+                                    <h3 className="text-3xl font-bold bg-gradient-to-r text-center from-white to-blue-300 bg-clip-text text-transparent mb-6">
                                         Stack Tecnológico
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
                                         {technologies.map((tech: string, index: number) => (
                                             <span
                                                 key={tech}
-                                                className="px-4 py-2 bg-red-900/30 text-red-300 rounded-full border border-red-700/50 text-sm font-medium hover:bg-red-900/50 hover:scale-105 transition-all duration-300"
+                                                className="px-4 py-2 bg-blue-900/30 text-blue-300 rounded-full border border-blue-700/50 text-sm font-medium hover:bg-blue-900/50 hover:scale-105 transition-all duration-300"
                                                 style={{ animationDelay: `${index * 0.1}s` }}
                                             >
                                                 {tech}
@@ -260,13 +249,13 @@ export default function DetalleDDS() {
                                 </div>
 
                                 {/* Detalles Técnicos */}
-                                <div className="bg-white/5 backdrop-blur-lg border border-red-500/20 rounded-xl p-6">
-                                    <h4 className="text-xl font-semibold text-red-300 mb-4">Especificaciones del Proyecto</h4>
+                                <div className="bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-xl p-6">
+                                    <h4 className="text-xl font-semibold text-blue-300 mb-4">Especificaciones del Proyecto</h4>
                                     <div className="space-y-3 text-gray-300">
                                         {technicalDetails.map((detail: { label: string; value: string }, index: number) => (
-                                            <div key={index} className="flex justify-between items-center py-2 border-b border-red-500/10 last:border-b-0">
-                                                <span className="text-red-200">{detail.label}:</span>
-                                                <span className="text-red-300 font-medium">{detail.value}</span>
+                                            <div key={index} className="flex justify-between items-center py-2 border-b border-blue-500/10 last:border-b-0">
+                                                <span className="text-blue-200">{detail.label}:</span>
+                                                <span className="text-blue-300 font-medium">{detail.value}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -282,7 +271,7 @@ export default function DetalleDDS() {
                 <div className="max-w-4xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-6">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-6">
                                 Impacto del Proyecto
                             </h2>
                         </div>
@@ -290,48 +279,48 @@ export default function DetalleDDS() {
 
                     <div className="grid md:grid-cols-2 gap-8">
                         <AnimatedContent distance={60} direction="left" duration={1} delay={0.2}>
-                            <div className="bg-white/5 backdrop-blur-lg border border-red-500/20 rounded-xl p-6">
-                                <h3 className="text-xl font-semibold text-red-300 mb-4">Para el Cliente</h3>
+                            <div className="bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-xl p-6">
+                                <h3 className="text-xl font-semibold text-blue-300 mb-4">Para los Pacientes</h3>
                                 <ul className="space-y-3 text-gray-300">
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Presencia profesional en internet
+                                        <span className="text-blue-400">•</span>
+                                        Acceso rápido a cuidados profesionales
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Mayor captación de clientes
+                                        <span className="text-blue-400">•</span>
+                                        Comodidad de atención en casa
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Comunicación 24/7 vía WhatsApp
+                                        <span className="text-blue-400">•</span>
+                                        Información clara sobre servicios
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Catálogo de servicios siempre disponible
+                                        <span className="text-blue-400">•</span>
+                                        Contacto inmediato para emergencias
                                     </li>
                                 </ul>
                             </div>
                         </AnimatedContent>
 
                         <AnimatedContent distance={60} direction="right" duration={1} delay={0.4}>
-                            <div className="bg-white/5 backdrop-blur-lg border border-red-500/20 rounded-xl p-6">
-                                <h3 className="text-xl font-semibold text-red-300 mb-4">Para el Negocio</h3>
+                            <div className="bg-white/5 backdrop-blur-lg border border-blue-500/20 rounded-xl p-6">
+                                <h3 className="text-xl font-semibold text-blue-300 mb-4">Para el Negocio</h3>
                                 <ul className="space-y-3 text-gray-300">
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Diferenciación competitiva
+                                        <span className="text-blue-400">•</span>
+                                        Mayor captación de pacientes
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Automatización de consultas
+                                        <span className="text-blue-400">•</span>
+                                        Automatización de solicitudes
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Credibilidad y confianza
+                                        <span className="text-blue-400">•</span>
+                                        Credibilidad profesional
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-red-400">•</span>
-                                        Base para crecimiento digital
+                                        <span className="text-blue-400">•</span>
+                                        Diferenciación en el mercado
                                     </li>
                                 </ul>
                             </div>
@@ -344,23 +333,23 @@ export default function DetalleDDS() {
             <section className="py-16 px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
-                        <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-red-300 bg-clip-text text-transparent mb-6">
+                        <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-6">
                             ¿Necesita un sitio web similar?
                         </h2>
-                        <p className="text-red-200 text-lg mb-8 max-w-2xl mx-auto">
-                            Puedo crear la presencia web para su negocio.
+                        <p className="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">
+                            Puedo crear una presencia web profesional para su negocio.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="/"
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 hover:text-white text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 hover:text-white text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
                             >
                                 <span>← Volver al portafolio</span>
                             </a>
                             <a
                                 href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
-                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-red-500/30 hover:text-white text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
+                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border border-blue-500/30 hover:text-white text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <span>Solicitar cotización</span>
@@ -371,18 +360,18 @@ export default function DetalleDDS() {
             </section>
 
             {/* Footer */}
-            <footer className="bg-gray-900 border-t border-red-700/30 py-12 px-4">
+            <footer className="bg-gray-900 border-t border-blue-700/30 py-12 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="flex flex-col items-center gap-4 mb-8">
                         <div className="flex items-center gap-2">
                             <span className="font-bold text-xl">Ing. Ricardo Legaspi</span>
                         </div>
-                        <p className="text-red-200">
+                        <p className="text-blue-200">
                             Especialista en desarrollo web y diseño de interfaces modernas
                         </p>
                     </div>
 
-                    <div className="border-t border-red-700/30 pt-8">
+                    <div className="border-t border-blue-700/30 pt-8">
                         <p className="text-gray-400">
                             © {new Date().getFullYear()} Portafolio - RL. Todos los derechos reservados.
                         </p>

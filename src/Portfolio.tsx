@@ -159,7 +159,15 @@ export default function Portfolio() {
             image: "/images/tiendaepos/store.png",
             link: "/detalle-tienda-epos",
             tags: ["UI/UX", "E-commerce", "Design"]
+        },
+        {
+            title: "Enfermeros a Domicilio",
+            description: "Sitio web para servicio profesional de enfermería a domicilio. Diseño confiable y accesible que transmite seguridad y profesionalismo.",
+            image: "/images/enfermeros/home.png",
+            link: "/detalle-enfermeros",
+            tags: ["React", "Tailwind", "Responsive", "UX/UI"]
         }
+
     ];
 
     // Detectar scroll y sección activa
@@ -545,7 +553,7 @@ export default function Portfolio() {
                                 <button
                                     type="submit"
                                     disabled={isSending}
-                                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 hover:border-none text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {isSending ? (
                                         <>

@@ -88,13 +88,13 @@ export default function DetalleTiendaEpos() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900/60 text-white">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-cyan-900/60 text-white">
             {/* Botón volver */}
             <BackButton
                 targetPath="/"
                 showText={true}
                 position="bottom-left"
-                className="bg-zinc-300 text-black hover:bg-green-700"
+                className="bg-zinc-300 text-black hover:bg-cyan-700"
             />
             {/* Image Modal */}
             <ImageModal
@@ -110,16 +110,16 @@ export default function DetalleTiendaEpos() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-8">
-                            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-6">
                                 Epos Comercializadora
                             </h1>
-                            <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-emerald-500 mx-auto mb-8 rounded-full"></div>
+                            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-cyan-400 mx-auto mb-8 rounded-full"></div>
                         </div>
                     </AnimatedContent>
 
                     <AnimatedContent distance={80} direction="horizontal" duration={1.2} delay={0.3}>
-                        <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
-                            <p className="text-xl text-green-200 text-justify leading-relaxed">
+                        <div className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-2xl p-8 max-w-4xl mx-auto">
+                            <p className="text-xl text-cyan-200 text-justify leading-relaxed">
                                 Diseño de interfaz para una tienda online especializada en birlos, tornillos y accesorios automotrices.
                                 Contará con catálogo completo, filtrado por tipo de vehículo y aplicación,
                                 con diseño moderno y experiencia de usuario optimizada para dispositivos móviles.
@@ -134,10 +134,10 @@ export default function DetalleTiendaEpos() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-4">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-4">
                                 Diseño de Interfaz
                             </h2>
-                            <p className="text-green-200 text-lg">
+                            <p className="text-cyan-200 text-lg">
                                 Haz click en cualquier imagen para verla en tamaño completo
                             </p>
                         </div>
@@ -153,7 +153,7 @@ export default function DetalleTiendaEpos() {
                                 delay={index * 0.2}
                             >
                                 <div
-                                    className="group bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
+                                    className="group bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
                                     onClick={() => openModal(image)}
                                 >
                                     <div className="relative h-64 overflow-hidden">
@@ -162,7 +162,7 @@ export default function DetalleTiendaEpos() {
                                             alt={image.alt}
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
+                                        <div className="absolute inset-0 bg-cyan-600/0 group-hover:bg-cyan-600/90 flex items-center justify-center transition-all duration-300 opacity-0 group-hover:opacity-100">
                                             <div className="text-center text-white p-4">
                                                 <h3 className="font-semibold text-lg mb-2">{image.title}</h3>
                                                 <p className="text-sm opacity-90">Click para expandir</p>
@@ -181,7 +181,7 @@ export default function DetalleTiendaEpos() {
                 <div className="max-w-6xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-6">
                                 Características
                             </h2>
                         </div>
@@ -196,9 +196,9 @@ export default function DetalleTiendaEpos() {
                                 duration={0.8}
                                 delay={index * 0.2}
                             >
-                                <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6 text-center hover:border-green-500/50 hover:scale-105 transition-all duration-300 h-full">
+                                <div className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-xl p-6 text-center hover:border-cyan-500/50 hover:scale-105 transition-all duration-300 h-full">
                                     <div className="text-4xl mb-4">{spec.icon}</div>
-                                    <h3 className="text-xl font-semibold text-green-300 mb-3">{spec.title}</h3>
+                                    <h3 className="text-xl font-semibold text-cyan-300 mb-3">{spec.title}</h3>
                                     <p className="text-gray-300 text-sm">{spec.description}</p>
                                 </div>
                             </AnimatedContent>
@@ -209,16 +209,16 @@ export default function DetalleTiendaEpos() {
                         {/* Funcionalidades */}
                         <AnimatedContent distance={80} direction="left" duration={1.2}>
                             <div>
-                                <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                                <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-6">
                                     Funcionalidades Principales
                                 </h3>
                                 <div className="space-y-4">
                                     {features.map((feature: string, index: number) => (
                                         <div
                                             key={index}
-                                            className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-green-500/10 hover:border-green-500/30 transition-all duration-300 hover:scale-105"
+                                            className="flex items-start gap-3 p-4 bg-white/5 rounded-lg border border-cyan-500/10 hover:border-cyan-500/30 transition-all duration-300 hover:scale-105"
                                         >
-                                            <span className="text-green-400 mt-1 flex-shrink-0">✓</span>
+                                            <span className="text-cyan-400 mt-1 flex-shrink-0">✓</span>
                                             <span className="text-gray-300">{feature}</span>
                                         </div>
                                     ))}
@@ -230,14 +230,14 @@ export default function DetalleTiendaEpos() {
                         <AnimatedContent distance={80} direction="right" duration={1.2} delay={0.2}>
                             <div className="space-y-8">
                                 <div>
-                                    <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                                    <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-6">
                                         Stack Tecnológico
                                     </h3>
                                     <div className="flex flex-wrap gap-3">
                                         {technologies.map((tech: string, index: number) => (
                                             <span
                                                 key={tech}
-                                                className="px-4 py-2 bg-green-900/30 text-green-300 rounded-full border border-green-700/50 text-sm font-medium hover:bg-green-900/50 hover:scale-105 transition-all duration-300"
+                                                className="px-4 py-2 bg-cyan-900/30 text-cyan-300 rounded-full border border-cyan-700/50 text-sm font-medium hover:bg-cyan-900/50 hover:scale-105 transition-all duration-300"
                                                 style={{ animationDelay: `${index * 0.1}s` }}
                                             >
                                                 {tech}
@@ -247,13 +247,13 @@ export default function DetalleTiendaEpos() {
                                 </div>
 
                                 {/* Detalles Técnicos */}
-                                <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6">
-                                    <h4 className="text-xl font-semibold text-green-300 mb-4">Especificaciones Técnicas</h4>
+                                <div className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-xl p-6">
+                                    <h4 className="text-xl font-semibold text-cyan-300 mb-4">Especificaciones Técnicas</h4>
                                     <div className="space-y-3 text-gray-300">
                                         {technicalDetails.map((detail: { label: string; value: string }, index: number) => (
-                                            <div key={index} className="flex justify-between items-center py-2 border-b border-green-500/10 last:border-b-0">
-                                                <span className="text-green-200">{detail.label}:</span>
-                                                <span className="text-green-300 font-medium">{detail.value}</span>
+                                            <div key={index} className="flex justify-between items-center py-2 border-b border-cyan-500/10 last:border-b-0">
+                                                <span className="text-cyan-200">{detail.label}:</span>
+                                                <span className="text-cyan-300 font-medium">{detail.value}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -269,7 +269,7 @@ export default function DetalleTiendaEpos() {
                 <div className="max-w-4xl mx-auto">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                            <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-6">
                                 Ventajas del Diseño
                             </h2>
                         </div>
@@ -277,23 +277,23 @@ export default function DetalleTiendaEpos() {
 
                     <div className="grid md:grid-cols-2 gap-8">
                         <AnimatedContent distance={60} direction="left" duration={1} delay={0.2}>
-                            <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6">
-                                <h3 className="text-xl font-semibold text-green-300 mb-4">Para el Cliente</h3>
+                            <div className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-xl p-6">
+                                <h3 className="text-xl font-semibold text-cyan-300 mb-4">Para el Cliente</h3>
                                 <ul className="space-y-3 text-gray-300">
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Búsqueda rápida y precisa de piezas
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Especificaciones técnicas claras
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Experiencia móvil optimizada
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Proceso de cotización simplificado
                                     </li>
                                 </ul>
@@ -301,23 +301,23 @@ export default function DetalleTiendaEpos() {
                         </AnimatedContent>
 
                         <AnimatedContent distance={60} direction="right" duration={1} delay={0.4}>
-                            <div className="bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl p-6">
-                                <h3 className="text-xl font-semibold text-green-300 mb-4">Para el Negocio</h3>
+                            <div className="bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-xl p-6">
+                                <h3 className="text-xl font-semibold text-cyan-300 mb-4">Para el Negocio</h3>
                                 <ul className="space-y-3 text-gray-300">
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Gestión eficiente de pedidos
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Automatización de cotizaciones
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Mayor alcance de clientes
                                     </li>
                                     <li className="flex items-center gap-2">
-                                        <span className="text-green-400">•</span>
+                                        <span className="text-cyan-400">•</span>
                                         Reducción de consultas manuales
                                     </li>
                                 </ul>
@@ -331,23 +331,23 @@ export default function DetalleTiendaEpos() {
             <section className="py-16 px-4">
                 <div className="max-w-4xl mx-auto text-center">
                     <AnimatedContent distance={80} direction="vertical" duration={1.2}>
-                        <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-green-300 bg-clip-text text-transparent mb-6">
+                        <h2 className="text-4xl font-bold bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent mb-6">
                             ¿Necesita un diseño similar?
                         </h2>
-                        <p className="text-green-200 text-lg mb-8 max-w-2xl mx-auto">
+                        <p className="text-cyan-200 text-lg mb-8 max-w-2xl mx-auto">
                             Puedo crear una interfaz moderna y funcional para su negocio.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <a
                                 href="/"
-                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:text-white hover:from-green-700 hover:to-emerald-700 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+                                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r hover:text-white from-cyan-600 to-cyan-500 hover:from-cyan-700 hover:to-cyan-600 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
                             >
                                 <span>← Volver al portafolio</span>
                             </a>
                             <a
                                 href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
-                                className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 hover:text-white border border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
+                                className="inline-flex items-center justify-center bg-white/10 hover:text-white hover:bg-white/20 border border-cyan-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <span>Solicitar cotización</span>
@@ -358,18 +358,18 @@ export default function DetalleTiendaEpos() {
             </section>
 
             {/* Footer */}
-            <footer className="bg-gray-900 border-t border-green-700/30 py-12 px-4">
+            <footer className="bg-gray-900 border-t border-cyan-700/30 py-12 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="flex flex-col items-center gap-4 mb-8">
                         <div className="flex items-center gap-2">
                             <span className="font-bold text-xl">Ing. Ricardo Legaspi</span>
                         </div>
-                        <p className="text-green-200">
+                        <p className="text-cyan-200">
                             Especialista en diseño de interfaces y desarrollo frontend
                         </p>
                     </div>
 
-                    <div className="border-t border-green-700/30 pt-8">
+                    <div className="border-t border-cyan-700/30 pt-8">
                         <p className="text-gray-400">
                             © {new Date().getFullYear()} Portafolio - RL. Todos los derechos reservados.
                         </p>
