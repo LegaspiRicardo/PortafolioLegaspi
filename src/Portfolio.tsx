@@ -3,10 +3,11 @@ import emailjs from '@emailjs/browser';
 import TextType from "./components/TextType";
 import AnimatedContent from "./components/AnimatedContent";
 import CircularGallery from "./components/CircularGallery";
+import { useTracking } from "./hooks/useTracking";
 
-// Componente WhatsAppButton con Tailwind - CORREGIDO
 const WhatsAppButton = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const { trackWhatsAppClick } = useTracking();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,6 +27,7 @@ const WhatsAppButton = () => {
             href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={trackWhatsAppClick}
             className={`
                 fixed top-24 right-6 z-50 flex items-center gap-2 
                 bg-zinc-700 hover:bg-zinc-700 text-white 
@@ -68,8 +70,11 @@ export default function Portfolio() {
     const [activeSection, setActiveSection] = useState("home");
     const [isSending, setIsSending] = useState(false);
     const form = useRef<HTMLFormElement>(null);
+    
+    // Hook de tracking
+    const { trackContactForm, trackProjectView, trackWhatsAppClick } = useTracking();
 
-    // Mover la función sendEmail dentro del componente
+    // Función para enviar email con tracking
     const sendEmail = (e: React.FormEvent) => {
         e.preventDefault();
         setIsSending(true);
@@ -92,13 +97,17 @@ export default function Portfolio() {
             form.current.appendChild(dateInput);
 
             emailjs.sendForm(
-                'service_3jsegqu', // Reemplaza con tu Service ID
-                'template_7g0y3zs', // Reemplaza con tu Template ID
+                'service_3jsegqu',
+                'template_7g0y3zs',
                 form.current,
-                'dmDCu0QnbO62UXqsL' // Reemplaza con tu Public Key
+                'dmDCu0QnbO62UXqsL'
             )
                 .then((result) => {
                     console.log('Email enviado:', result.text);
+                    
+                    // TRACKING - Después de envío exitoso
+                    trackContactForm();
+                    
                     alert('¡Mensaje enviado correctamente! Te responderé pronto.');
                     form.current?.reset();
                     setIsSending(false);
@@ -115,6 +124,11 @@ export default function Portfolio() {
                     }
                 });
         }
+    };
+
+    // Función para tracking de proyectos
+    const handleProjectClick = (projectTitle: string) => {
+        trackProjectView(projectTitle);
     };
 
     const links = [
@@ -167,7 +181,6 @@ export default function Portfolio() {
             link: "/detalle-enfermeros",
             tags: ["React", "Tailwind", "Responsive", "UX/UI"]
         }
-
     ];
 
     // Detectar scroll y sección activa
@@ -335,7 +348,9 @@ export default function Portfolio() {
                                     </a>
                                     <a
                                         href="https://api.whatsapp.com/send?phone=523320853721&text=¡Hola!%20ví%20tu%20portafolio%20y%20me%20interesa%20contactarte%20para%20un%20proyecto%20de%20desarrollo%20web.%20¿Podrías%20darme%20más%20información%20sobre%20tus%20servicios?"
-                                        className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border hover:text-white border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" target="_blank"
+                                        onClick={trackWhatsAppClick}
+                                        className="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 border hover:text-white border-green-500/30 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105" 
+                                        target="_blank"
                                         rel="noopener noreferrer"
                                     >
                                         <span>Contactar</span>
@@ -447,6 +462,7 @@ export default function Portfolio() {
                             >
                                 <a
                                     href={project.link}
+                                    onClick={() => handleProjectClick(project.title)}
                                     className="group block bg-white/5 backdrop-blur-lg border border-green-500/20 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer"
                                 >
                                     <div className="relative h-48 overflow-hidden">
