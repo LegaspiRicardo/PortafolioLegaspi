@@ -12,7 +12,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -29,10 +29,21 @@
   </noscript>
   <!-- End Meta Pixel Code -->
 
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B746W5MBTS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-B746W5MBTS');
+  </script>
+  <!-- End Google tag -->
+
 </head>
 
-<body class="bg-gray-900 text-white"> 
-  <div id="root" class="min-h-screen w-full"></div> 
+<body class="bg-gray-900 text-white">
+  <div id="root" class="min-h-screen w-full"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

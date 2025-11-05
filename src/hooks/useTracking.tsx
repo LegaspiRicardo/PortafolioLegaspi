@@ -1,17 +1,18 @@
 import { useEffect } from 'react';
-
-// Declarar fbq en el objeto window para TypeScript
 declare global {
     interface Window {
         fbq: any;
+        gtag: any;
     }
 }
 
 export const useTracking = () => {
-    // Verificar que fbq esté disponible
     useEffect(() => {
         if (typeof window.fbq === 'undefined') {
             console.warn('Meta Pixel no está cargado');
+        }
+        if (typeof window.gtag === 'undefined') {
+            console.warn('Google Analytics no está cargado');
         }
     }, []);
 
@@ -25,6 +26,15 @@ export const useTracking = () => {
             });
             console.log('Meta Pixel: Lead event tracked');
         }
+
+        // Google Analytics
+        if (typeof window.gtag !== 'undefined') {
+            window.gtag('event', 'generate_lead', {
+                currency: 'USD',
+                value: 100.00
+            });
+            console.log('Google Analytics: generate_lead event tracked');
+        }
     };
 
     const trackDownloadCV = () => {
@@ -36,6 +46,15 @@ export const useTracking = () => {
                 content_name: 'Descarga CV Ricardo Legaspi'
             });
             console.log('Meta Pixel: CV Download tracked');
+        }
+
+        // Google Analytics
+        if (window.gtag) {
+            window.gtag('event', 'file_download', {
+                file_name: 'CV_Ricardo_Legaspi.pdf',
+                file_extension: 'pdf'
+            });
+            console.log('Google Analytics: file_download event tracked');
         }
     };
 
@@ -49,6 +68,17 @@ export const useTracking = () => {
             });
             console.log('Meta Pixel: Project View tracked -', projectName);
         }
+
+        // Google Analytics
+        if (window.gtag) {
+            window.gtag('event', 'view_item', {
+                items: [{
+                    item_name: projectName,
+                    category: 'Proyecto'
+                }]
+            });
+            console.log('Google Analytics: view_item event tracked -', projectName);
+        }
     };
 
     const trackPhoneClick = () => {
@@ -59,6 +89,13 @@ export const useTracking = () => {
                 content_name: 'Click Teléfono Header'
             });
             console.log('Meta Pixel: Phone Click tracked');
+        }
+
+        if (window.gtag) {
+            window.gtag('event', 'contact', {
+                method: 'phone'
+            });
+            console.log('Google Analytics: contact event tracked - phone');
         }
     };
 
@@ -71,6 +108,13 @@ export const useTracking = () => {
             });
             console.log('Meta Pixel: Email Click tracked');
         }
+
+        if (window.gtag) {
+            window.gtag('event', 'contact', {
+                method: 'email'
+            });
+            console.log('Google Analytics: contact event tracked - email');
+        }
     };
 
     const trackWhatsAppClick = () => {
@@ -81,6 +125,13 @@ export const useTracking = () => {
                 content_name: 'Click WhatsApp Button'
             });
             console.log('Meta Pixel: WhatsApp Click tracked');
+        }
+
+        if (window.gtag) {
+            window.gtag('event', 'contact', {
+                method: 'whatsapp'
+            });
+            console.log('Google Analytics: contact event tracked - whatsapp');
         }
     };
 
